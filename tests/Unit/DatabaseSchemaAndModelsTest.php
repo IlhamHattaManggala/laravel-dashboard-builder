@@ -1,13 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Manggala\DashboardBuilder\Models\Dashboard;
 use Manggala\DashboardBuilder\Models\DashboardCategory;
 use Manggala\DashboardBuilder\Models\DashboardTag;
-use Manggala\DashboardBuilder\Models\DashboardWidget;
-use Manggala\DashboardBuilder\Models\DashboardWidgetData;
-use Manggala\DashboardBuilder\Models\DashboardLayout;
-use Manggala\DashboardBuilder\Models\DashboardPermission;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 

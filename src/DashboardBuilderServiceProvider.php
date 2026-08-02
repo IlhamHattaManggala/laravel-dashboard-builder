@@ -12,12 +12,12 @@ class DashboardBuilderServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/dashboard-builder.php',
+            __DIR__.'/../config/dashboard-builder.php',
             'dashboard-builder'
         );
 
         $this->app->singleton('dashboard-builder', function ($app) {
-            return new Services\DashboardManager();
+            return new Services\DashboardManager;
         });
     }
 
@@ -38,7 +38,7 @@ class DashboardBuilderServiceProvider extends ServiceProvider
     protected function registerMigrations(): void
     {
         if ($this->app->runningInConsole()) {
-            $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+            $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         }
     }
 
@@ -50,17 +50,17 @@ class DashboardBuilderServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             // Config publishing
             $this->publishes([
-                __DIR__ . '/../config/dashboard-builder.php' => config_path('dashboard-builder.php'),
+                __DIR__.'/../config/dashboard-builder.php' => config_path('dashboard-builder.php'),
             ], 'dashboard-builder-config');
 
             // Migration publishing
             $this->publishes([
-                __DIR__ . '/../database/migrations' => database_path('migrations'),
+                __DIR__.'/../database/migrations' => database_path('migrations'),
             ], 'dashboard-builder-migrations');
 
             // Assets publishing
             $this->publishes([
-                __DIR__ . '/../public' => public_path('vendor/dashboard-builder'),
+                __DIR__.'/../public' => public_path('vendor/dashboard-builder'),
             ], 'dashboard-builder-assets');
         }
     }
@@ -70,12 +70,12 @@ class DashboardBuilderServiceProvider extends ServiceProvider
      */
     protected function registerRoutes(): void
     {
-        if (file_exists(__DIR__ . '/../routes/web.php')) {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        if (file_exists(__DIR__.'/../routes/web.php')) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         }
 
-        if (file_exists(__DIR__ . '/../routes/api.php')) {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
+        if (file_exists(__DIR__.'/../routes/api.php')) {
+            $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
         }
     }
 

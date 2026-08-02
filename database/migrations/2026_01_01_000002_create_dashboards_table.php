@@ -16,7 +16,7 @@ return new class extends Migration
         $tagsTable = config('dashboard-builder.tables.dashboard_tags', 'dashboard_tags');
         $pivotTable = config('dashboard-builder.tables.dashboard_tag_dashboard', 'dashboard_tag_dashboard');
 
-        if (!Schema::hasTable($dashboardsTable)) {
+        if (! Schema::hasTable($dashboardsTable)) {
             Schema::create($dashboardsTable, function (Blueprint $table) use ($categoriesTable) {
                 $table->id();
                 $table->string('name');
@@ -35,7 +35,7 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasTable($pivotTable)) {
+        if (! Schema::hasTable($pivotTable)) {
             Schema::create($pivotTable, function (Blueprint $table) use ($dashboardsTable, $tagsTable) {
                 $table->foreignId('dashboard_id')->constrained($dashboardsTable)->cascadeOnDelete();
                 $table->foreignId('tag_id')->constrained($tagsTable)->cascadeOnDelete();

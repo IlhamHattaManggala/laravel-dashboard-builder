@@ -14,7 +14,7 @@ return new class extends Migration
         $dashboardsTable = config('dashboard-builder.tables.dashboards', 'dashboards');
         $permissionsTable = config('dashboard-builder.tables.dashboard_permissions', 'dashboard_permissions');
 
-        if (!Schema::hasTable($permissionsTable)) {
+        if (! Schema::hasTable($permissionsTable)) {
             Schema::create($permissionsTable, function (Blueprint $table) use ($dashboardsTable) {
                 $table->id();
                 $table->foreignId('dashboard_id')->constrained($dashboardsTable)->cascadeOnDelete();

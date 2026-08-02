@@ -17,7 +17,7 @@ return new class extends Migration
         $layoutsTable = config('dashboard-builder.tables.dashboard_layouts', 'dashboard_layouts');
         $settingsTable = config('dashboard-builder.tables.dashboard_widget_settings', 'dashboard_widget_settings');
 
-        if (!Schema::hasTable($widgetsTable)) {
+        if (! Schema::hasTable($widgetsTable)) {
             Schema::create($widgetsTable, function (Blueprint $table) use ($dashboardsTable) {
                 $table->id();
                 $table->foreignId('dashboard_id')->constrained($dashboardsTable)->cascadeOnDelete();
@@ -36,7 +36,7 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasTable($widgetDataTable)) {
+        if (! Schema::hasTable($widgetDataTable)) {
             Schema::create($widgetDataTable, function (Blueprint $table) use ($widgetsTable) {
                 $table->id();
                 $table->foreignId('widget_id')->constrained($widgetsTable)->cascadeOnDelete();
@@ -47,7 +47,7 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasTable($layoutsTable)) {
+        if (! Schema::hasTable($layoutsTable)) {
             Schema::create($layoutsTable, function (Blueprint $table) use ($dashboardsTable) {
                 $table->id();
                 $table->foreignId('dashboard_id')->constrained($dashboardsTable)->cascadeOnDelete();
@@ -57,7 +57,7 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasTable($settingsTable)) {
+        if (! Schema::hasTable($settingsTable)) {
             Schema::create($settingsTable, function (Blueprint $table) use ($widgetsTable) {
                 $table->id();
                 $table->foreignId('widget_id')->constrained($widgetsTable)->cascadeOnDelete();

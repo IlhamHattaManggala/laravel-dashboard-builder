@@ -21,6 +21,7 @@ class DashboardTag extends Model
     public function dashboards(): BelongsToMany
     {
         $pivotTable = config('dashboard-builder.tables.dashboard_tag_dashboard', 'dashboard_tag_dashboard');
+
         return $this->belongsToMany(Dashboard::class, $pivotTable, 'tag_id', 'dashboard_id');
     }
 }

@@ -3,11 +3,12 @@
 namespace Manggala\DashboardBuilder\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use Manggala\DashboardBuilder\Services\DashboardManager;
 
 /**
  * @method static \Manggala\DashboardBuilder\Services\DashboardManager make(string $name)
  *
- * @see \Manggala\DashboardBuilder\Services\DashboardManager
+ * @see DashboardManager
  */
 class Dashboard extends Facade
 {

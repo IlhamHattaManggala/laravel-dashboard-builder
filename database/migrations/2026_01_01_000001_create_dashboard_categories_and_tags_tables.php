@@ -14,7 +14,7 @@ return new class extends Migration
         $categoriesTable = config('dashboard-builder.tables.dashboard_categories', 'dashboard_categories');
         $tagsTable = config('dashboard-builder.tables.dashboard_tags', 'dashboard_tags');
 
-        if (!Schema::hasTable($categoriesTable)) {
+        if (! Schema::hasTable($categoriesTable)) {
             Schema::create($categoriesTable, function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
@@ -26,7 +26,7 @@ return new class extends Migration
             });
         }
 
-        if (!Schema::hasTable($tagsTable)) {
+        if (! Schema::hasTable($tagsTable)) {
             Schema::create($tagsTable, function (Blueprint $table) {
                 $table->id();
                 $table->string('name');
