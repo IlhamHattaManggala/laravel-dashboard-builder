@@ -3,6 +3,14 @@
 namespace Manggala\DashboardBuilder;
 
 use Illuminate\Support\ServiceProvider;
+use Manggala\DashboardBuilder\DataSources\CollectionDataSource;
+use Manggala\DashboardBuilder\DataSources\EloquentDataSource;
+use Manggala\DashboardBuilder\DataSources\JsonDataSource;
+use Manggala\DashboardBuilder\DataSources\QueryBuilderDataSource;
+use Manggala\DashboardBuilder\DataSources\RawSqlDataSource;
+use Manggala\DashboardBuilder\DataSources\RestApiDataSource;
+use Manggala\DashboardBuilder\DataSources\StaticDataSource;
+use Manggala\DashboardBuilder\Facades\Dashboard;
 
 class DashboardBuilderServiceProvider extends ServiceProvider
 {
@@ -30,6 +38,21 @@ class DashboardBuilderServiceProvider extends ServiceProvider
         $this->registerPublishing();
         $this->registerRoutes();
         $this->registerCommands();
+        $this->registerDefaultDataSources();
+    }
+
+    /**
+     * Register default data sources in registry.
+     */
+    protected function registerDefaultDataSources(): void
+    {
+        Dashboard::registerDataSource(new EloquentDataSource);
+        Dashboard::registerDataSource(new QueryBuilderDataSource);
+        Dashboard::registerDataSource(new CollectionDataSource);
+        Dashboard::registerDataSource(new StaticDataSource);
+        Dashboard::registerDataSource(new JsonDataSource);
+        Dashboard::registerDataSource(new RawSqlDataSource);
+        Dashboard::registerDataSource(new RestApiDataSource);
     }
 
     /**

@@ -18,12 +18,10 @@ return [
 
     'middleware' => [
         'web',
-        'auth',
     ],
 
     'api_middleware' => [
         'api',
-        'auth:sanctum',
     ],
 
     /*
