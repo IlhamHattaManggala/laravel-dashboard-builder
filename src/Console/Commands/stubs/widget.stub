@@ -1,0 +1,22 @@
+<?php
+
+namespace DummyNamespace;
+
+use Manggala\DashboardBuilder\Widgets\Widget;
+
+class DummyClass extends Widget
+{
+    protected string $type = 'custom_dummy_class';
+    protected string $category = 'custom';
+
+    public function renderData(array $config = []): array
+    {
+        return [
+            'type' => $this->getType(),
+            'title' => $this->getTitle(),
+            'data' => [
+                'message' => 'Hello from custom widget!',
+            ],
+        ];
+    }
+}

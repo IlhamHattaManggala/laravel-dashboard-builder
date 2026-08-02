@@ -1,0 +1,21 @@
+<?php
+
+namespace DummyNamespace;
+
+use Manggala\DashboardBuilder\Facades\Dashboard;
+use Manggala\DashboardBuilder\Widgets\Stats\CardWidget;
+
+class DummyClass
+{
+    /**
+     * Build and configure dashboard layout and widgets.
+     */
+    public static function build()
+    {
+        return Dashboard::make('DummyClass')
+            ->description('Custom dashboard description')
+            ->widget(
+                CardWidget::make('Overview Card')
+            );
+    }
+}

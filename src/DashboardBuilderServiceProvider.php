@@ -3,6 +3,11 @@
 namespace Manggala\DashboardBuilder;
 
 use Illuminate\Support\ServiceProvider;
+use Manggala\DashboardBuilder\Console\Commands\ClearCacheCommand;
+use Manggala\DashboardBuilder\Console\Commands\InstallCommand;
+use Manggala\DashboardBuilder\Console\Commands\MakeDashboardCommand;
+use Manggala\DashboardBuilder\Console\Commands\MakeWidgetCommand;
+use Manggala\DashboardBuilder\Console\Commands\PublishCommand;
 use Manggala\DashboardBuilder\DataSources\CollectionDataSource;
 use Manggala\DashboardBuilder\DataSources\EloquentDataSource;
 use Manggala\DashboardBuilder\DataSources\JsonDataSource;
@@ -109,7 +114,11 @@ class DashboardBuilderServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                // Commands will be registered in Phase 7
+                InstallCommand::class,
+                PublishCommand::class,
+                ClearCacheCommand::class,
+                MakeDashboardCommand::class,
+                MakeWidgetCommand::class,
             ]);
         }
     }
