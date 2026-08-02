@@ -1,0 +1,9 @@
+/vendor/
+/node_modules/
+/public/*.js
+/public/*.css
+.phpunit.cache
+.env
+.DS_Store
+Github Repository.txt
+Laravel Dashboard Builder PRD.pdf
