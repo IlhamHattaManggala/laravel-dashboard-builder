@@ -90,6 +90,11 @@ class DashboardBuilderServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../public' => public_path('vendor/dashboard-builder'),
             ], 'dashboard-builder-assets');
+
+            // Views publishing (Inertia Pages)
+            $this->publishes([
+                __DIR__.'/../resources/js/Pages' => resource_path('js/Pages/DashboardBuilder'),
+            ], 'dashboard-builder-views');
         }
     }
 

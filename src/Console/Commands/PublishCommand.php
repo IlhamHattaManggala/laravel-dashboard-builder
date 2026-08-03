@@ -19,6 +19,7 @@ class PublishCommand extends Command
             'config' => 'dashboard-builder-config',
             'migrations' => 'dashboard-builder-migrations',
             'assets' => 'dashboard-builder-assets',
+            'views' => 'dashboard-builder-views',
             default => null,
         };
 

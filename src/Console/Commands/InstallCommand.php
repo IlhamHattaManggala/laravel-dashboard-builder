@@ -47,6 +47,12 @@ class InstallCommand extends Command
             '--force' => $force,
         ]);
 
+        $this->comment('Publishing Inertia React page views...');
+        $this->call('vendor:publish', [
+            '--tag' => 'dashboard-builder-views',
+            '--force' => $force,
+        ]);
+
         if ($this->confirm('Would you like to run the database migrations now?', true)) {
             $this->call('migrate');
         }

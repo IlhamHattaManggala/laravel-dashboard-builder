@@ -54,3 +54,8 @@ export interface DashboardData {
   is_archived?: boolean;
   is_public?: boolean;
 }
+
+declare global {
+  function route(name?: string, params?: any): any;
+}
+

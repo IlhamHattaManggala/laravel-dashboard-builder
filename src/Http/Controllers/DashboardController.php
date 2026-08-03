@@ -3,6 +3,7 @@
 namespace Manggala\DashboardBuilder\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
@@ -34,7 +35,7 @@ class DashboardController extends Controller
 
         $dashboards = $query->latest()->paginate(15);
 
-        if ($request->wantsJson()) {
+        if ($request->wantsJson() && ! $request->header('X-Inertia')) {
             return response()->json($dashboards);
         }
 
@@ -54,7 +55,7 @@ class DashboardController extends Controller
     /**
      * Store a newly created dashboard in storage.
      */
-    public function store(Request $request): JsonResponse
+    public function store(Request $request): JsonResponse|RedirectResponse
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -71,6 +72,10 @@ class DashboardController extends Controller
 
         $dashboard = Dashboard::create($validated);
 
+        if ($request->header('X-Inertia')) {
+            return redirect()->route('dashboard-builder.edit', $dashboard->id);
+        }
+
         return response()->json([
             'message' => 'Dashboard created successfully',
             'dashboard' => $dashboard->load(['category', 'tags', 'widgets']),
@@ -84,7 +89,7 @@ class DashboardController extends Controller
     {
         $dashboard->load(['category', 'tags', 'widgets.widgetData', 'layouts', 'permissions']);
 
-        if ($request->wantsJson()) {
+        if ($request->wantsJson() && ! $request->header('X-Inertia')) {
             return response()->json($dashboard);
         }
 
@@ -108,7 +113,7 @@ class DashboardController extends Controller
     /**
      * Update the specified dashboard in storage.
      */
-    public function update(Request $request, Dashboard $dashboard): JsonResponse
+    public function update(Request $request, Dashboard $dashboard): JsonResponse|RedirectResponse
     {
         $validated = $request->validate([
             'name' => 'sometimes|required|string|max:255',
@@ -126,6 +131,44 @@ class DashboardController extends Controller
 
         $dashboard->update($validated);
 
+        if (isset($validated['layout']) && is_array($validated['layout'])) {
+            $currentWidgetIds = [];
+
+            foreach ($validated['layout'] as $index => $item) {
+                $widgetData = [
+                    'type' => $item['type'] ?? 'card',
+                    'title' => $item['title'] ?? 'Widget',
+                    'x' => $item['x'] ?? 0,
+                    'y' => $item['y'] ?? ($index * 2),
+                    'w' => $item['w'] ?? 6,
+                    'h' => $item['h'] ?? 4,
+                    'data_source_type' => $item['data_source_type'] ?? 'static',
+                    'data_source_config' => $item['data_source_config'] ?? null,
+                    'settings' => $item['settings'] ?? null,
+                    'refresh_interval' => $item['refresh_interval'] ?? null,
+                    'order' => $index,
+                ];
+
+                $widgetId = $item['id'] ?? null;
+                $isExistingInDb = $widgetId && is_numeric($widgetId) && $widgetId < 1000000000000
+                    && $dashboard->widgets()->where('id', $widgetId)->exists();
+
+                if ($isExistingInDb) {
+                    $dashboard->widgets()->where('id', $widgetId)->update($widgetData);
+                    $currentWidgetIds[] = $widgetId;
+                } else {
+                    $newWidget = $dashboard->widgets()->create($widgetData);
+                    $currentWidgetIds[] = $newWidget->id;
+                }
+            }
+
+            $dashboard->widgets()->whereNotIn('id', $currentWidgetIds)->delete();
+        }
+
+        if ($request->header('X-Inertia')) {
+            return redirect()->back();
+        }
+
         return response()->json([
             'message' => 'Dashboard updated successfully',
             'dashboard' => $dashboard->fresh(['category', 'tags', 'widgets']),
@@ -135,9 +178,13 @@ class DashboardController extends Controller
     /**
      * Soft delete the specified dashboard.
      */
-    public function destroy(Dashboard $dashboard): JsonResponse
+    public function destroy(Request $request, Dashboard $dashboard): JsonResponse|RedirectResponse
     {
         $dashboard->delete();
+
+        if ($request->header('X-Inertia')) {
+            return redirect()->route('dashboard-builder.index');
+        }
 
         return response()->json([
             'message' => 'Dashboard deleted successfully',
@@ -147,7 +194,7 @@ class DashboardController extends Controller
     /**
      * Duplicate an existing dashboard and its widgets.
      */
-    public function duplicate(Dashboard $dashboard): JsonResponse
+    public function duplicate(Request $request, Dashboard $dashboard): JsonResponse|RedirectResponse
     {
         $dashboard->load('widgets');
 
@@ -164,6 +211,10 @@ class DashboardController extends Controller
             $newWidget->save();
         }
 
+        if ($request->header('X-Inertia')) {
+            return redirect()->back();
+        }
+
         return response()->json([
             'message' => 'Dashboard duplicated successfully',
             'dashboard' => $newDashboard->load('widgets'),
@@ -173,9 +224,13 @@ class DashboardController extends Controller
     /**
      * Toggle archive status.
      */
-    public function archive(Dashboard $dashboard): JsonResponse
+    public function archive(Request $request, Dashboard $dashboard): JsonResponse|RedirectResponse
     {
         $dashboard->update(['is_archived' => ! $dashboard->is_archived]);
+
+        if ($request->header('X-Inertia')) {
+            return redirect()->back();
+        }
 
         return response()->json([
             'message' => $dashboard->is_archived ? 'Dashboard archived' : 'Dashboard restored',
@@ -186,9 +241,13 @@ class DashboardController extends Controller
     /**
      * Toggle favorite status.
      */
-    public function favorite(Dashboard $dashboard): JsonResponse
+    public function favorite(Request $request, Dashboard $dashboard): JsonResponse|RedirectResponse
     {
         $dashboard->update(['is_favorite' => ! $dashboard->is_favorite]);
+
+        if ($request->header('X-Inertia')) {
+            return redirect()->back();
+        }
 
         return response()->json([
             'message' => $dashboard->is_favorite ? 'Added to favorites' : 'Removed from favorites',
