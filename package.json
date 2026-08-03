@@ -7,7 +7,7 @@
     "types": "tsc --noEmit"
   },
   "dependencies": {
-    "@inertiajs/react": "^2.0.0",
+    "@inertiajs/react": "^3.6.1",
     "apexcharts": "^4.0.0",
     "gridstack": "^10.3.1",
     "lucide-react": "^0.475.0",
