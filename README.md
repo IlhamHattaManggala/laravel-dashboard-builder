@@ -12,6 +12,7 @@ It allows developers to create stunning, interactive, responsive dashboards visu
 
 ## 🌟 Key Features
 
+* **Laravel Version Support**: Fully compatible with Laravel 11.x, 12.x, and 13.x (PHP 8.3+).
 * **Fluent PHP Builder API**: Expressive `Dashboard::make('Sales')` syntax inspired by Spatie & Filament.
 * **Interactive Visual Drag & Drop Builder**: Built with React, TypeScript, Inertia.js, ApexCharts, and GridStack.
 * **Extensible Widget Engine**: Support for Stat Cards, KPI Trends, Line Charts, Bar Charts, Area Charts, Pie Charts, Donut Charts, Data Tables, Markdown, HTML, and Web IFrames.
