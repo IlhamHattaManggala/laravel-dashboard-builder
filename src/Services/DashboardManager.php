@@ -29,6 +29,14 @@ class DashboardManager
     }
 
     /**
+     * Get current version of Laravel Dashboard Builder.
+     */
+    public function version(): string
+    {
+        return '1.0.3';
+    }
+
+    /**
      * Get underlying registry instance.
      */
     public function registry(): DashboardRegistry
