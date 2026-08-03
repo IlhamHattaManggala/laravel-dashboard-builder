@@ -1,7 +1,5 @@
 /vendor/
 /node_modules/
-/public/*.js
-/public/*.css
 .phpunit.cache
 .env
 .DS_Store
