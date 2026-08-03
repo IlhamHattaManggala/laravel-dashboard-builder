@@ -1,6 +1,6 @@
 # Laravel Dashboard Builder 🚀
 
-[![Latest Stable Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/IlhamHattaManggala/laravel-dashboard-builder)
+[![Latest Stable Version](https://img.shields.io/badge/version-1.0.6-blue.svg)](https://github.com/IlhamHattaManggala/laravel-dashboard-builder)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/tests-34%20passed-brightgreen.svg)](https://github.com/IlhamHattaManggala/laravel-dashboard-builder)
 
@@ -12,15 +12,15 @@ It allows developers to create stunning, interactive, responsive dashboards visu
 
 ## 🌟 Key Features
 
-* **Laravel Version Support**: Fully compatible with Laravel 11.x, 12.x, and 13.x (PHP 8.3+).
+* **Laravel & PHP Support**: Fully compatible with Laravel 11.x, 12.x, and 13.x (PHP 8.3+) & Inertia.js v1, v2, v3.
+* **Interactive Drag-and-Drop Canvas**: Visual layout canvas editor with interactive widget positioning (move up/down/left/right) & dynamic resizing handles.
+* **Global Date Range Picker**: Centralized date range filtering (All Time, Today, Last 7 Days, This Month, Last 30 Days) propagated across widgets.
+* **Export Options**: Export visual dashboards to PNG/PDF print documents & JSON schema.
+* **Visual Query Builder Inspector**: Configure Model/Table sources, Aggregation Functions (`COUNT`, `SUM`, `AVG`, `MAX`, `MIN`), target columns, and Date Grouping (`groupByDay`, `groupByMonth`, `groupByYear`) visually from the inspector UI.
+* **RBAC & Policy Authorization**: Native Laravel Gate/Policy integration (`DashboardPolicy`) for fine-grained viewer vs editor access control.
 * **Fluent PHP Builder API**: Expressive `Dashboard::make('Sales')` syntax inspired by Spatie & Filament.
-* **Interactive Visual Drag & Drop Builder**: Built with React, TypeScript, Inertia.js, ApexCharts, and GridStack.
-* **Extensible Widget Engine**: Support for Stat Cards, KPI Trends, Line Charts, Bar Charts, Area Charts, Pie Charts, Donut Charts, Data Tables, Markdown, HTML, and Web IFrames.
 * **Dynamic Data Source Drivers**: Query Eloquent Models, DB Query Builder, Memory Collections, Raw SQL, JSON files, or REST API endpoints with caching support.
-* **Powerful Aggregation Engine**: Count, Sum, Avg, Min, Max operations with date/time grouping (Hour, Day, Week, Month, Year) and filter conditions.
-* **Theme & Responsive Breakpoints**: Light, Dark, System themes with custom primary colors and Desktop/Tablet/Mobile breakpoint layouts.
-* **Export & Import Schema**: JSON schema import/export with validation.
-* **Artisan Generators**: Generator commands `make:dashboard` and `make:dashboard-widget`.
+* **Artisan Generators & Auto-Publish Views**: Generator commands `make:dashboard`, `make:dashboard-widget`, and publish tags for Inertia pages (`dashboard-builder-views`).
 
 ---
 
@@ -32,7 +32,7 @@ Install the package via Composer:
 composer require manggala/laravel-dashboard-builder
 ```
 
-Run the package installation command to publish configuration, database migrations, and assets:
+Run the package installation command to publish configuration, database migrations, assets, and Inertia React page views:
 
 ```bash
 php artisan dashboard:install
@@ -44,6 +44,21 @@ Optionally publish resources individually:
 php artisan dashboard:publish --tag=config
 php artisan dashboard:publish --tag=migrations
 php artisan dashboard:publish --tag=assets
+php artisan dashboard:publish --tag=views
+```
+
+---
+
+## 🔒 Authorization (Role-Based Access Control)
+
+The package automatically registers `DashboardPolicy` for authorization. You can authorize actions in your application controller or gates:
+
+```php
+use Manggala\DashboardBuilder\Models\Dashboard;
+use Illuminate\Support\Facades\Gate;
+
+// Check authorization before rendering or editing
+Gate::authorize('update', $dashboard);
 ```
 
 ---
@@ -94,7 +109,7 @@ $payload = $salesDashboard->toArray();
 
 ## 🛠️ Artisan Commands
 
-Generate new dashboards or custom widget classes:
+Generate new dashboards, custom widgets, or publish resources:
 
 ```bash
 # Generate a new Dashboard class in app/Dashboards/

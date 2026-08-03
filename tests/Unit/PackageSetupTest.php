@@ -10,7 +10,7 @@ it('loads configuration correctly', function () {
 });
 
 it('resolves dashboard facade correctly', function () {
-    expect(Dashboard::version())->toBe('1.0.5');
+    expect(Dashboard::version())->toBe('1.0.6');
     expect(Dashboard::registry())->toBeInstanceOf(DashboardRegistry::class);
     $manager = Dashboard::make('Sales Dashboard');
     expect($manager)->toBeInstanceOf(DashboardManager::class);

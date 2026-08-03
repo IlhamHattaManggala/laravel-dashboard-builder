@@ -15,6 +15,7 @@ export default function Edit({ dashboard }: EditProps) {
   const [selectedWidget, setSelectedWidget] = useState<DashboardWidget | null>(widgets[0] || null);
   const [isEditing, setIsEditing] = useState(true);
   const [device, setDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
+  const [dateRange, setDateRange] = useState('all_time');
 
   const handleAddWidget = (type: string, title: string) => {
     const newWidget: DashboardWidget = {
@@ -71,7 +72,7 @@ export default function Edit({ dashboard }: EditProps) {
     }
   };
 
-  const handleExport = () => {
+  const handleExportJSON = () => {
     const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(widgets, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute('href', dataStr);
@@ -79,6 +80,14 @@ export default function Edit({ dashboard }: EditProps) {
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();
+  };
+
+  const handleExportPNG = () => {
+    window.print();
+  };
+
+  const handleExportPDF = () => {
+    window.print();
   };
 
   return (
@@ -89,9 +98,13 @@ export default function Edit({ dashboard }: EditProps) {
         onTogglePreview={() => setIsEditing(!isEditing)}
         onSave={handleSave}
         onDuplicate={handleDuplicate}
-        onExport={handleExport}
+        onExport={handleExportJSON}
+        onExportPNG={handleExportPNG}
+        onExportPDF={handleExportPDF}
         device={device}
         onDeviceChange={setDevice}
+        dateRange={dateRange}
+        onDateRangeChange={setDateRange}
       />
 
       <div className="flex-1 flex overflow-hidden">
@@ -103,6 +116,7 @@ export default function Edit({ dashboard }: EditProps) {
             selectedWidgetId={selectedWidget?.id}
             onSelectWidget={setSelectedWidget}
             isEditing={isEditing}
+            onUpdateWidget={handleUpdateWidget}
           />
         </main>
 

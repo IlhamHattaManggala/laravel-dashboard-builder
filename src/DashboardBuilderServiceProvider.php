@@ -2,6 +2,7 @@
 
 namespace Manggala\DashboardBuilder;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Manggala\DashboardBuilder\Console\Commands\ClearCacheCommand;
 use Manggala\DashboardBuilder\Console\Commands\InstallCommand;
@@ -16,6 +17,7 @@ use Manggala\DashboardBuilder\DataSources\RawSqlDataSource;
 use Manggala\DashboardBuilder\DataSources\RestApiDataSource;
 use Manggala\DashboardBuilder\DataSources\StaticDataSource;
 use Manggala\DashboardBuilder\Facades\Dashboard;
+use Manggala\DashboardBuilder\Policies\DashboardPolicy;
 
 class DashboardBuilderServiceProvider extends ServiceProvider
 {
@@ -39,11 +41,23 @@ class DashboardBuilderServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->registerPolicies();
         $this->registerMigrations();
         $this->registerPublishing();
         $this->registerRoutes();
         $this->registerCommands();
         $this->registerDefaultDataSources();
+    }
+
+    /**
+     * Register authorization policies.
+     */
+    protected function registerPolicies(): void
+    {
+        Gate::policy(
+            Models\Dashboard::class,
+            DashboardPolicy::class
+        );
     }
 
     /**
