@@ -80,7 +80,7 @@ function Kr() {
       var pe = F.displayName || F.name || "";
       return pe !== "" ? K + "(" + pe + ")" : K;
     }
-    function E(M) {
+    function I(M) {
       return M.displayName || "Context";
     }
     function R(M) {
@@ -108,10 +108,10 @@ function Kr() {
         switch (M.$$typeof) {
           case o:
             var F = M;
-            return E(F) + ".Consumer";
+            return I(F) + ".Consumer";
           case r:
             var K = M;
-            return E(K._context) + ".Provider";
+            return I(K._context) + ".Provider";
           case l:
             return T(M, M.render, "ForwardRef");
           case d:
@@ -128,14 +128,14 @@ function Kr() {
         }
       return null;
     }
-    var z = Object.assign, Y = 0, H, N, U, Q, O, _, Z;
+    var z = Object.assign, Y = 0, N, H, U, Q, O, _, Z;
     function ee() {
     }
     ee.__reactDisabledLog = !0;
     function W() {
       {
         if (Y === 0) {
-          H = console.log, N = console.info, U = console.warn, Q = console.error, O = console.group, _ = console.groupCollapsed, Z = console.groupEnd;
+          N = console.log, H = console.info, U = console.warn, Q = console.error, O = console.group, _ = console.groupCollapsed, Z = console.groupEnd;
           var M = {
             configurable: !0,
             enumerable: !0,
@@ -165,10 +165,10 @@ function Kr() {
           };
           Object.defineProperties(console, {
             log: z({}, M, {
-              value: H
+              value: N
             }),
             info: z({}, M, {
-              value: N
+              value: H
             }),
             warn: z({}, M, {
               value: U
@@ -235,29 +235,29 @@ function Kr() {
           }), typeof Reflect == "object" && Reflect.construct) {
             try {
               Reflect.construct(ce, []);
-            } catch (He) {
-              ne = He;
+            } catch (Ne) {
+              ne = Ne;
             }
             Reflect.construct(M, [], ce);
           } else {
             try {
               ce.call();
-            } catch (He) {
-              ne = He;
+            } catch (Ne) {
+              ne = Ne;
             }
             M.call(ce.prototype);
           }
         } else {
           try {
             throw Error();
-          } catch (He) {
-            ne = He;
+          } catch (Ne) {
+            ne = Ne;
           }
           M();
         }
-      } catch (He) {
-        if (He && ne && typeof He.stack == "string") {
-          for (var he = He.stack.split(`
+      } catch (Ne) {
+        if (Ne && ne && typeof Ne.stack == "string") {
+          for (var he = Ne.stack.split(`
 `), _e = ne.stack.split(`
 `), Pe = he.length - 1, Te = _e.length - 1; Pe >= 1 && Te >= 0 && he[Pe] !== _e[Te]; )
             Te--;
@@ -414,7 +414,7 @@ function Kr() {
         });
       }
     }
-    var Hr = function(M, F, K, ne, pe, Ce, ce) {
+    var Nr = function(M, F, K, ne, pe, Ce, ce) {
       var he = {
         // This tag allows us to uniquely identify this as a React Element
         $$typeof: e,
@@ -443,7 +443,7 @@ function Kr() {
         value: pe
       }), Object.freeze && (Object.freeze(he.props), Object.freeze(he)), he;
     };
-    function Nr(M, F, K, ne, pe) {
+    function Hr(M, F, K, ne, pe) {
       {
         var Ce, ce = {}, he = null, _e = null;
         K !== void 0 && (Ra(K), he = "" + K), zr(F) && (Ra(F.key), he = "" + F.key), Or(F) && (_e = F.ref, _r(F, pe));
@@ -458,7 +458,7 @@ function Kr() {
           var Te = typeof M == "function" ? M.displayName || M.name || "Unknown" : M;
           he && Yr(ce, Te), _e && Xr(ce, Te);
         }
-        return Hr(M, he, _e, pe, ne, Oa.current, ce);
+        return Nr(M, he, _e, pe, ne, Oa.current, ce);
       }
     }
     var pi = b.ReactCurrentOwner, Ya = b.ReactDebugCurrentFrame;
@@ -489,7 +489,7 @@ Check the render method of \`` + M + "`.";
     function Fr(M) {
       return "";
     }
-    var Ha = {};
+    var Na = {};
     function Dr(M) {
       {
         var F = Xa();
@@ -502,15 +502,15 @@ Check the top-level render call using <` + K + ">.");
         return F;
       }
     }
-    function Na(M, F) {
+    function Ha(M, F) {
       {
         if (!M._store || M._store.validated || M.key != null)
           return;
         M._store.validated = !0;
         var K = Dr(F);
-        if (Ha[K])
+        if (Na[K])
           return;
-        Ha[K] = !0;
+        Na[K] = !0;
         var ne = "";
         M && M._owner && M._owner !== pi.current && (ne = " It was passed a child from " + R(M._owner.type) + "."), xt(M), m('Each child in a list should have a unique "key" prop.%s%s See https://reactjs.org/link/warning-keys for more information.', K, ne), xt(null);
       }
@@ -522,7 +522,7 @@ Check the top-level render call using <` + K + ">.");
         if (fi(M))
           for (var K = 0; K < M.length; K++) {
             var ne = M[K];
-            bi(ne) && Na(ne, F);
+            bi(ne) && Ha(ne, F);
           }
         else if (bi(M))
           M._store && (M._store.validated = !0);
@@ -530,7 +530,7 @@ Check the top-level render call using <` + K + ">.");
           var pe = x(M);
           if (typeof pe == "function" && pe !== M.entries)
             for (var Ce = pe.call(M), ce; !(ce = Ce.next()).done; )
-              bi(ce.value) && Na(ce.value, F);
+              bi(ce.value) && Ha(ce.value, F);
         }
       }
     }
@@ -583,7 +583,7 @@ Check the top-level render call using <` + K + ">.");
           var Pe;
           M === null ? Pe = "null" : fi(M) ? Pe = "array" : M !== void 0 && M.$$typeof === e ? (Pe = "<" + (R(M.type) || "Unknown") + " />", he = " Did you accidentally export a JSX literal instead of a component?") : Pe = typeof M, m("React.jsx: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", Pe, he);
         }
-        var Te = Nr(M, F, K, pe, Ce);
+        var Te = Hr(M, F, K, pe, Ce);
         if (Te == null)
           return Te;
         if (ce) {
@@ -600,11 +600,11 @@ Check the top-level render call using <` + K + ">.");
               Fa(We, M);
         }
         if (Et.call(F, "key")) {
-          var rt = R(M), He = Object.keys(F).filter(function($r) {
+          var rt = R(M), Ne = Object.keys(F).filter(function($r) {
             return $r !== "key";
-          }), mi = He.length > 0 ? "{key: someKey, " + He.join(": ..., ") + ": ...}" : "{key: someKey}";
+          }), mi = Ne.length > 0 ? "{key: someKey, " + Ne.join(": ..., ") + ": ...}" : "{key: someKey}";
           if (!Da[rt + mi]) {
-            var qr = He.length > 0 ? "{" + He.join(": ..., ") + ": ...}" : "{}";
+            var qr = Ne.length > 0 ? "{" + Ne.join(": ..., ") + ": ...}" : "{}";
             m(`A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
@@ -630,7 +630,7 @@ var Va;
 function Qr() {
   return Va || (Va = 1, process.env.NODE_ENV === "production" ? Jt.exports = Jr() : Jt.exports = Kr()), Jt.exports;
 }
-var I = Qr();
+var E = Qr();
 /**
  * @license lucide-react v0.475.0 - ISC
  *
@@ -933,10 +933,10 @@ const Yn = [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Hn = [
+const Nn = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "M12 5v14", key: "s699le" }]
-], Nn = ke("Plus", Hn);
+], Hn = ke("Plus", Nn);
 /**
  * @license lucide-react v0.475.0 - ISC
  *
@@ -1045,7 +1045,7 @@ const Qn = [
 const eo = [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
-], to = ke("X", eo), _l = ({
+], to = ke("X", eo), Xl = ({
   title: n,
   isEditing: e,
   onTogglePreview: t,
@@ -1058,116 +1058,116 @@ const eo = [
   onDeviceChange: h,
   dateRange: c = "all_time",
   onDateRangeChange: d
-}) => /* @__PURE__ */ I.jsxs("header", { className: "h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 flex items-center justify-between sticky top-0 z-30", children: [
-  /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-3", children: [
-    /* @__PURE__ */ I.jsx("h1", { className: "text-base font-bold text-slate-800 dark:text-slate-100", children: n }),
-    /* @__PURE__ */ I.jsx("span", { className: "px-2 py-0.5 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300", children: e ? "Builder Mode" : "Preview Mode" })
+}) => /* @__PURE__ */ E.jsxs("header", { className: "h-14 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 flex items-center justify-between sticky top-0 z-30", children: [
+  /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-3", children: [
+    /* @__PURE__ */ E.jsx("h1", { className: "text-base font-bold text-slate-800 dark:text-slate-100", children: n }),
+    /* @__PURE__ */ E.jsx("span", { className: "px-2 py-0.5 text-xs font-semibold rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300", children: e ? "Builder Mode" : "Preview Mode" })
   ] }),
-  /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-3", children: [
-    d && /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-1.5 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-xs", children: [
-      /* @__PURE__ */ I.jsx(gn, { className: "w-3.5 h-3.5 text-slate-500" }),
-      /* @__PURE__ */ I.jsxs(
+  /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-3", children: [
+    d && /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-1.5 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded-md text-xs", children: [
+      /* @__PURE__ */ E.jsx(gn, { className: "w-3.5 h-3.5 text-slate-500" }),
+      /* @__PURE__ */ E.jsxs(
         "select",
         {
           value: c,
           onChange: (u) => d(u.target.value),
           className: "bg-transparent border-none text-xs font-medium text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer",
           children: [
-            /* @__PURE__ */ I.jsx("option", { value: "all_time", children: "All Time" }),
-            /* @__PURE__ */ I.jsx("option", { value: "today", children: "Today" }),
-            /* @__PURE__ */ I.jsx("option", { value: "last_7_days", children: "Last 7 Days" }),
-            /* @__PURE__ */ I.jsx("option", { value: "this_month", children: "This Month" }),
-            /* @__PURE__ */ I.jsx("option", { value: "last_30_days", children: "Last 30 Days" })
+            /* @__PURE__ */ E.jsx("option", { value: "all_time", children: "All Time" }),
+            /* @__PURE__ */ E.jsx("option", { value: "today", children: "Today" }),
+            /* @__PURE__ */ E.jsx("option", { value: "last_7_days", children: "Last 7 Days" }),
+            /* @__PURE__ */ E.jsx("option", { value: "this_month", children: "This Month" }),
+            /* @__PURE__ */ E.jsx("option", { value: "last_30_days", children: "Last 30 Days" })
           ]
         }
       )
     ] }),
-    /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg", children: [
-      /* @__PURE__ */ I.jsx(
+    /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg", children: [
+      /* @__PURE__ */ E.jsx(
         "button",
         {
           onClick: () => h("desktop"),
           className: `p-1.5 rounded-md text-xs transition-colors ${l === "desktop" ? "bg-white dark:bg-slate-900 text-indigo-600 shadow-sm" : "text-slate-500"}`,
           title: "Desktop view",
-          children: /* @__PURE__ */ I.jsx(Xn, { className: "w-4 h-4" })
+          children: /* @__PURE__ */ E.jsx(Xn, { className: "w-4 h-4" })
         }
       ),
-      /* @__PURE__ */ I.jsx(
+      /* @__PURE__ */ E.jsx(
         "button",
         {
           onClick: () => h("tablet"),
           className: `p-1.5 rounded-md text-xs transition-colors ${l === "tablet" ? "bg-white dark:bg-slate-900 text-indigo-600 shadow-sm" : "text-slate-500"}`,
           title: "Tablet view",
-          children: /* @__PURE__ */ I.jsx(qn, { className: "w-4 h-4" })
+          children: /* @__PURE__ */ E.jsx(qn, { className: "w-4 h-4" })
         }
       ),
-      /* @__PURE__ */ I.jsx(
+      /* @__PURE__ */ E.jsx(
         "button",
         {
           onClick: () => h("mobile"),
           className: `p-1.5 rounded-md text-xs transition-colors ${l === "mobile" ? "bg-white dark:bg-slate-900 text-indigo-600 shadow-sm" : "text-slate-500"}`,
           title: "Mobile view",
-          children: /* @__PURE__ */ I.jsx(Bn, { className: "w-4 h-4" })
+          children: /* @__PURE__ */ E.jsx(Bn, { className: "w-4 h-4" })
         }
       )
     ] })
   ] }),
-  /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-2", children: [
-    /* @__PURE__ */ I.jsxs(
+  /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-2", children: [
+    /* @__PURE__ */ E.jsxs(
       "button",
       {
         onClick: t,
         className: "px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md flex items-center space-x-1.5 transition-colors",
         children: [
-          /* @__PURE__ */ I.jsx(Cn, { className: "w-3.5 h-3.5" }),
-          /* @__PURE__ */ I.jsx("span", { children: e ? "Preview" : "Edit" })
+          /* @__PURE__ */ E.jsx(Cn, { className: "w-3.5 h-3.5" }),
+          /* @__PURE__ */ E.jsx("span", { children: e ? "Preview" : "Edit" })
         ]
       }
     ),
-    r && /* @__PURE__ */ I.jsx(
+    r && /* @__PURE__ */ E.jsx(
       "button",
       {
         onClick: r,
         className: "p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md flex items-center space-x-1 text-xs",
         title: "Export to PNG Image",
-        children: /* @__PURE__ */ I.jsx(Tn, { className: "w-4 h-4 text-emerald-600" })
+        children: /* @__PURE__ */ E.jsx(Tn, { className: "w-4 h-4 text-emerald-600" })
       }
     ),
-    o && /* @__PURE__ */ I.jsx(
+    o && /* @__PURE__ */ E.jsx(
       "button",
       {
         onClick: o,
         className: "p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md flex items-center space-x-1 text-xs",
         title: "Export to PDF Document",
-        children: /* @__PURE__ */ I.jsx(Es, { className: "w-4 h-4 text-rose-600" })
+        children: /* @__PURE__ */ E.jsx(Es, { className: "w-4 h-4 text-rose-600" })
       }
     ),
-    a && /* @__PURE__ */ I.jsx(
+    a && /* @__PURE__ */ E.jsx(
       "button",
       {
         onClick: a,
         className: "p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md",
         title: "Duplicate dashboard",
-        children: /* @__PURE__ */ I.jsx(mn, { className: "w-4 h-4" })
+        children: /* @__PURE__ */ E.jsx(mn, { className: "w-4 h-4" })
       }
     ),
-    s && /* @__PURE__ */ I.jsx(
+    s && /* @__PURE__ */ E.jsx(
       "button",
       {
         onClick: s,
         className: "p-1.5 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md",
         title: "Export JSON schema",
-        children: /* @__PURE__ */ I.jsx(kn, { className: "w-4 h-4" })
+        children: /* @__PURE__ */ E.jsx(kn, { className: "w-4 h-4" })
       }
     ),
-    /* @__PURE__ */ I.jsxs(
+    /* @__PURE__ */ E.jsxs(
       "button",
       {
         onClick: i,
         className: "px-4 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow-sm flex items-center space-x-1.5 transition-colors",
         children: [
-          /* @__PURE__ */ I.jsx(Dn, { className: "w-3.5 h-3.5" }),
-          /* @__PURE__ */ I.jsx("span", { children: "Save" })
+          /* @__PURE__ */ E.jsx(Dn, { className: "w-3.5 h-3.5" }),
+          /* @__PURE__ */ E.jsx("span", { children: "Save" })
         ]
       }
     )
@@ -1181,39 +1181,39 @@ const eo = [
   { type: "table", title: "Data Table", icon: Vn, category: "Content" },
   { type: "markdown", title: "Markdown Text", icon: Es, category: "Content" },
   { type: "iframe", title: "Web Iframe Embed", icon: Ln, category: "Embed" }
-], Yl = ({ onAddWidget: n }) => /* @__PURE__ */ I.jsxs("aside", { className: "w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 p-4 flex flex-col h-[calc(100vh-3.5rem)] overflow-y-auto", children: [
-  /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-2 text-slate-700 dark:text-slate-200 mb-4 font-semibold text-xs uppercase tracking-wider", children: [
-    /* @__PURE__ */ I.jsx(In, { className: "w-4 h-4 text-indigo-600" }),
-    /* @__PURE__ */ I.jsx("span", { children: "Widget Palette" })
+], Nl = ({ onAddWidget: n }) => /* @__PURE__ */ E.jsxs("aside", { className: "w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 p-4 flex flex-col h-[calc(100vh-3.5rem)] overflow-y-auto", children: [
+  /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-2 text-slate-700 dark:text-slate-200 mb-4 font-semibold text-xs uppercase tracking-wider", children: [
+    /* @__PURE__ */ E.jsx(In, { className: "w-4 h-4 text-indigo-600" }),
+    /* @__PURE__ */ E.jsx("span", { children: "Widget Palette" })
   ] }),
-  /* @__PURE__ */ I.jsx("div", { className: "space-y-2", children: io.map((e) => {
+  /* @__PURE__ */ E.jsx("div", { className: "space-y-2", children: io.map((e) => {
     const t = e.icon;
-    return /* @__PURE__ */ I.jsxs(
+    return /* @__PURE__ */ E.jsxs(
       "div",
       {
         onClick: () => n(e.type, e.title),
         className: "p-3 bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 border border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 rounded-lg cursor-pointer transition-all flex items-center space-x-3 group",
         children: [
-          /* @__PURE__ */ I.jsx("div", { className: "p-2 bg-white dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 group-hover:text-indigo-600", children: /* @__PURE__ */ I.jsx(t, { className: "w-4 h-4" }) }),
-          /* @__PURE__ */ I.jsxs("div", { children: [
-            /* @__PURE__ */ I.jsx("h4", { className: "text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600", children: e.title }),
-            /* @__PURE__ */ I.jsx("p", { className: "text-[10px] text-slate-400", children: e.category })
+          /* @__PURE__ */ E.jsx("div", { className: "p-2 bg-white dark:bg-slate-800 rounded-md text-slate-600 dark:text-slate-300 group-hover:text-indigo-600", children: /* @__PURE__ */ E.jsx(t, { className: "w-4 h-4" }) }),
+          /* @__PURE__ */ E.jsxs("div", { children: [
+            /* @__PURE__ */ E.jsx("h4", { className: "text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-indigo-600", children: e.title }),
+            /* @__PURE__ */ E.jsx("p", { className: "text-[10px] text-slate-400", children: e.category })
           ] })
         ]
       },
       e.type
     );
   }) })
-] }), Xl = ({
+] }), Hl = ({
   selectedWidget: n,
   onUpdateWidget: e,
   onDeleteWidget: t,
   onClose: i
 }) => {
   if (!n)
-    return /* @__PURE__ */ I.jsxs("aside", { className: "w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-4 flex flex-col items-center justify-center text-center h-[calc(100vh-3.5rem)] text-slate-400 text-xs", children: [
-      /* @__PURE__ */ I.jsx(qa, { className: "w-8 h-8 mb-2 stroke-1 text-slate-300" }),
-      /* @__PURE__ */ I.jsx("p", { children: "Select a widget on the canvas to configure its properties" })
+    return /* @__PURE__ */ E.jsxs("aside", { className: "w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-4 flex flex-col items-center justify-center text-center h-[calc(100vh-3.5rem)] text-slate-400 text-xs", children: [
+      /* @__PURE__ */ E.jsx(qa, { className: "w-8 h-8 mb-2 stroke-1 text-slate-300" }),
+      /* @__PURE__ */ E.jsx("p", { children: "Select a widget on the canvas to configure its properties" })
     ] });
   const a = n.data_source_config || {}, s = (r, o) => {
     e({
@@ -1224,18 +1224,18 @@ const eo = [
       }
     });
   };
-  return /* @__PURE__ */ I.jsxs("aside", { className: "w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-4 flex flex-col h-[calc(100vh-3.5rem)] overflow-y-auto", children: [
-    /* @__PURE__ */ I.jsxs("div", { className: "flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800", children: [
-      /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-2 text-slate-800 dark:text-slate-200 font-semibold text-xs uppercase tracking-wider", children: [
-        /* @__PURE__ */ I.jsx(qa, { className: "w-4 h-4 text-indigo-600" }),
-        /* @__PURE__ */ I.jsx("span", { children: "Widget Inspector" })
+  return /* @__PURE__ */ E.jsxs("aside", { className: "w-72 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 p-4 flex flex-col h-[calc(100vh-3.5rem)] overflow-y-auto", children: [
+    /* @__PURE__ */ E.jsxs("div", { className: "flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800", children: [
+      /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-2 text-slate-800 dark:text-slate-200 font-semibold text-xs uppercase tracking-wider", children: [
+        /* @__PURE__ */ E.jsx(qa, { className: "w-4 h-4 text-indigo-600" }),
+        /* @__PURE__ */ E.jsx("span", { children: "Widget Inspector" })
       ] }),
-      /* @__PURE__ */ I.jsx("button", { onClick: i, className: "text-slate-400 hover:text-slate-600", children: /* @__PURE__ */ I.jsx(to, { className: "w-4 h-4" }) })
+      /* @__PURE__ */ E.jsx("button", { onClick: i, className: "text-slate-400 hover:text-slate-600", children: /* @__PURE__ */ E.jsx(to, { className: "w-4 h-4" }) })
     ] }),
-    /* @__PURE__ */ I.jsxs("div", { className: "space-y-4 text-xs", children: [
-      /* @__PURE__ */ I.jsxs("div", { children: [
-        /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Widget Title" }),
-        /* @__PURE__ */ I.jsx(
+    /* @__PURE__ */ E.jsxs("div", { className: "space-y-4 text-xs", children: [
+      /* @__PURE__ */ E.jsxs("div", { children: [
+        /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Widget Title" }),
+        /* @__PURE__ */ E.jsx(
           "input",
           {
             type: "text",
@@ -1245,10 +1245,10 @@ const eo = [
           }
         )
       ] }),
-      /* @__PURE__ */ I.jsxs("div", { className: "grid grid-cols-2 gap-2", children: [
-        /* @__PURE__ */ I.jsxs("div", { children: [
-          /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Grid Width (W)" }),
-          /* @__PURE__ */ I.jsx(
+      /* @__PURE__ */ E.jsxs("div", { className: "grid grid-cols-2 gap-2", children: [
+        /* @__PURE__ */ E.jsxs("div", { children: [
+          /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Grid Width (W)" }),
+          /* @__PURE__ */ E.jsx(
             "input",
             {
               type: "number",
@@ -1260,9 +1260,9 @@ const eo = [
             }
           )
         ] }),
-        /* @__PURE__ */ I.jsxs("div", { children: [
-          /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Grid Height (H)" }),
-          /* @__PURE__ */ I.jsx(
+        /* @__PURE__ */ E.jsxs("div", { children: [
+          /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Grid Height (H)" }),
+          /* @__PURE__ */ E.jsx(
             "input",
             {
               type: "number",
@@ -1275,31 +1275,31 @@ const eo = [
           )
         ] })
       ] }),
-      /* @__PURE__ */ I.jsxs("div", { children: [
-        /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Data Source Driver" }),
-        /* @__PURE__ */ I.jsxs(
+      /* @__PURE__ */ E.jsxs("div", { children: [
+        /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Data Source Driver" }),
+        /* @__PURE__ */ E.jsxs(
           "select",
           {
             value: n.data_source_type,
             onChange: (r) => e({ ...n, data_source_type: r.target.value }),
             className: "w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md text-slate-800 dark:text-slate-200",
             children: [
-              /* @__PURE__ */ I.jsx("option", { value: "eloquent", children: "Eloquent Model" }),
-              /* @__PURE__ */ I.jsx("option", { value: "query_builder", children: "Query Builder (DB Table)" }),
-              /* @__PURE__ */ I.jsx("option", { value: "static", children: "Static Payload" }),
-              /* @__PURE__ */ I.jsx("option", { value: "rest_api", children: "REST API" })
+              /* @__PURE__ */ E.jsx("option", { value: "eloquent", children: "Eloquent Model" }),
+              /* @__PURE__ */ E.jsx("option", { value: "query_builder", children: "Query Builder (DB Table)" }),
+              /* @__PURE__ */ E.jsx("option", { value: "static", children: "Static Payload" }),
+              /* @__PURE__ */ E.jsx("option", { value: "rest_api", children: "REST API" })
             ]
           }
         )
       ] }),
-      (n.data_source_type === "eloquent" || n.data_source_type === "query_builder") && /* @__PURE__ */ I.jsxs("div", { className: "p-3 bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 rounded-lg space-y-3", children: [
-        /* @__PURE__ */ I.jsxs("div", { className: "flex items-center space-x-1.5 text-indigo-700 dark:text-indigo-300 font-semibold text-[11px]", children: [
-          /* @__PURE__ */ I.jsx(yn, { className: "w-3.5 h-3.5" }),
-          /* @__PURE__ */ I.jsx("span", { children: "Visual Query Builder" })
+      (n.data_source_type === "eloquent" || n.data_source_type === "query_builder") && /* @__PURE__ */ E.jsxs("div", { className: "p-3 bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 rounded-lg space-y-3", children: [
+        /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-1.5 text-indigo-700 dark:text-indigo-300 font-semibold text-[11px]", children: [
+          /* @__PURE__ */ E.jsx(yn, { className: "w-3.5 h-3.5" }),
+          /* @__PURE__ */ E.jsx("span", { children: "Visual Query Builder" })
         ] }),
-        /* @__PURE__ */ I.jsxs("div", { children: [
-          /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: n.data_source_type === "eloquent" ? "Model Class" : "Table Name" }),
-          /* @__PURE__ */ I.jsx(
+        /* @__PURE__ */ E.jsxs("div", { children: [
+          /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: n.data_source_type === "eloquent" ? "Model Class" : "Table Name" }),
+          /* @__PURE__ */ E.jsx(
             "input",
             {
               type: "text",
@@ -1310,27 +1310,27 @@ const eo = [
             }
           )
         ] }),
-        /* @__PURE__ */ I.jsxs("div", { children: [
-          /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Aggregate Function" }),
-          /* @__PURE__ */ I.jsxs(
+        /* @__PURE__ */ E.jsxs("div", { children: [
+          /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Aggregate Function" }),
+          /* @__PURE__ */ E.jsxs(
             "select",
             {
               value: a.aggregate_function || "COUNT",
               onChange: (r) => s("aggregate_function", r.target.value),
               className: "w-full px-3 py-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md text-slate-800 dark:text-slate-200",
               children: [
-                /* @__PURE__ */ I.jsx("option", { value: "COUNT", children: "COUNT" }),
-                /* @__PURE__ */ I.jsx("option", { value: "SUM", children: "SUM" }),
-                /* @__PURE__ */ I.jsx("option", { value: "AVG", children: "AVG" }),
-                /* @__PURE__ */ I.jsx("option", { value: "MIN", children: "MIN" }),
-                /* @__PURE__ */ I.jsx("option", { value: "MAX", children: "MAX" })
+                /* @__PURE__ */ E.jsx("option", { value: "COUNT", children: "COUNT" }),
+                /* @__PURE__ */ E.jsx("option", { value: "SUM", children: "SUM" }),
+                /* @__PURE__ */ E.jsx("option", { value: "AVG", children: "AVG" }),
+                /* @__PURE__ */ E.jsx("option", { value: "MIN", children: "MIN" }),
+                /* @__PURE__ */ E.jsx("option", { value: "MAX", children: "MAX" })
               ]
             }
           )
         ] }),
-        /* @__PURE__ */ I.jsxs("div", { children: [
-          /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Target Column" }),
-          /* @__PURE__ */ I.jsx(
+        /* @__PURE__ */ E.jsxs("div", { children: [
+          /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Target Column" }),
+          /* @__PURE__ */ E.jsx(
             "input",
             {
               type: "text",
@@ -1341,27 +1341,27 @@ const eo = [
             }
           )
         ] }),
-        /* @__PURE__ */ I.jsxs("div", { children: [
-          /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Date Grouping" }),
-          /* @__PURE__ */ I.jsxs(
+        /* @__PURE__ */ E.jsxs("div", { children: [
+          /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Date Grouping" }),
+          /* @__PURE__ */ E.jsxs(
             "select",
             {
               value: a.group_by || "none",
               onChange: (r) => s("group_by", r.target.value),
               className: "w-full px-3 py-1 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md text-slate-800 dark:text-slate-200",
               children: [
-                /* @__PURE__ */ I.jsx("option", { value: "none", children: "None" }),
-                /* @__PURE__ */ I.jsx("option", { value: "groupByDay", children: "Daily (groupByDay)" }),
-                /* @__PURE__ */ I.jsx("option", { value: "groupByMonth", children: "Monthly (groupByMonth)" }),
-                /* @__PURE__ */ I.jsx("option", { value: "groupByYear", children: "Yearly (groupByYear)" })
+                /* @__PURE__ */ E.jsx("option", { value: "none", children: "None" }),
+                /* @__PURE__ */ E.jsx("option", { value: "groupByDay", children: "Daily (groupByDay)" }),
+                /* @__PURE__ */ E.jsx("option", { value: "groupByMonth", children: "Monthly (groupByMonth)" }),
+                /* @__PURE__ */ E.jsx("option", { value: "groupByYear", children: "Yearly (groupByYear)" })
               ]
             }
           )
         ] })
       ] }),
-      /* @__PURE__ */ I.jsxs("div", { children: [
-        /* @__PURE__ */ I.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Refresh Interval (Sec)" }),
-        /* @__PURE__ */ I.jsx(
+      /* @__PURE__ */ E.jsxs("div", { children: [
+        /* @__PURE__ */ E.jsx("label", { className: "block text-slate-600 dark:text-slate-400 font-medium mb-1", children: "Refresh Interval (Sec)" }),
+        /* @__PURE__ */ E.jsx(
           "input",
           {
             type: "number",
@@ -1372,14 +1372,14 @@ const eo = [
         )
       ] })
     ] }),
-    /* @__PURE__ */ I.jsx("div", { className: "mt-auto pt-4 border-t border-slate-200 dark:border-slate-800", children: /* @__PURE__ */ I.jsxs(
+    /* @__PURE__ */ E.jsx("div", { className: "mt-auto pt-4 border-t border-slate-200 dark:border-slate-800", children: /* @__PURE__ */ E.jsxs(
       "button",
       {
         onClick: () => n.id !== void 0 && t(n.id),
         className: "w-full py-2 bg-rose-50 dark:bg-rose-950/30 text-rose-600 hover:bg-rose-100 rounded-md font-semibold text-xs flex items-center justify-center space-x-1.5 transition-colors",
         children: [
-          /* @__PURE__ */ I.jsx(Zn, { className: "w-3.5 h-3.5" }),
-          /* @__PURE__ */ I.jsx("span", { children: "Remove Widget" })
+          /* @__PURE__ */ E.jsx(Zn, { className: "w-3.5 h-3.5" }),
+          /* @__PURE__ */ E.jsx("span", { children: "Remove Widget" })
         ]
       }
     ) })
@@ -1387,18 +1387,18 @@ const eo = [
 }, ao = ({ widget: n }) => {
   var s, r, o, l, h;
   const e = ((s = n.data) == null ? void 0 : s.result) ?? ((r = n.data) == null ? void 0 : r.value) ?? 0, t = ((o = n.settings) == null ? void 0 : o.description) ?? "", i = (l = n.settings) == null ? void 0 : l.trend, a = (h = n.settings) == null ? void 0 : h.icon;
-  return /* @__PURE__ */ I.jsxs("div", { className: "flex flex-col justify-between h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm", children: [
-    /* @__PURE__ */ I.jsxs("div", { className: "flex items-center justify-between", children: [
-      /* @__PURE__ */ I.jsx("span", { className: "text-sm font-medium text-slate-500 dark:text-slate-400", children: n.title }),
-      a && /* @__PURE__ */ I.jsx("span", { className: "p-2 text-indigo-600 bg-indigo-50 dark:bg-indigo-950/50 rounded-md text-xs font-semibold", children: a })
+  return /* @__PURE__ */ E.jsxs("div", { className: "flex flex-col justify-between h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm", children: [
+    /* @__PURE__ */ E.jsxs("div", { className: "flex items-center justify-between", children: [
+      /* @__PURE__ */ E.jsx("span", { className: "text-sm font-medium text-slate-500 dark:text-slate-400", children: n.title }),
+      a && /* @__PURE__ */ E.jsx("span", { className: "p-2 text-indigo-600 bg-indigo-50 dark:bg-indigo-950/50 rounded-md text-xs font-semibold", children: a })
     ] }),
-    /* @__PURE__ */ I.jsxs("div", { className: "my-2", children: [
-      /* @__PURE__ */ I.jsx("div", { className: "text-3xl font-extrabold text-slate-900 dark:text-slate-100", children: typeof e == "number" ? e.toLocaleString() : e }),
-      t && /* @__PURE__ */ I.jsx("p", { className: "text-xs text-slate-500 mt-1", children: t })
+    /* @__PURE__ */ E.jsxs("div", { className: "my-2", children: [
+      /* @__PURE__ */ E.jsx("div", { className: "text-3xl font-extrabold text-slate-900 dark:text-slate-100", children: typeof e == "number" ? e.toLocaleString() : e }),
+      t && /* @__PURE__ */ E.jsx("p", { className: "text-xs text-slate-500 mt-1", children: t })
     ] }),
-    i !== void 0 && /* @__PURE__ */ I.jsxs("div", { className: `flex items-center text-xs font-semibold ${i >= 0 ? "text-emerald-600" : "text-rose-600"}`, children: [
-      i >= 0 ? /* @__PURE__ */ I.jsx(Is, { className: "w-3.5 h-3.5 mr-1" }) : /* @__PURE__ */ I.jsx(Kn, { className: "w-3.5 h-3.5 mr-1" }),
-      /* @__PURE__ */ I.jsxs("span", { children: [
+    i !== void 0 && /* @__PURE__ */ E.jsxs("div", { className: `flex items-center text-xs font-semibold ${i >= 0 ? "text-emerald-600" : "text-rose-600"}`, children: [
+      i >= 0 ? /* @__PURE__ */ E.jsx(Is, { className: "w-3.5 h-3.5 mr-1" }) : /* @__PURE__ */ E.jsx(Kn, { className: "w-3.5 h-3.5 mr-1" }),
+      /* @__PURE__ */ E.jsxs("span", { children: [
         Math.abs(i),
         "% from last period"
       ] })
@@ -1780,7 +1780,7 @@ function le(n, e) {
   else if (typeof n != "object") Xs(Object.getOwnPropertyNames(e)), qi[n] = Object.assign(qi[n] || {}, e);
   else for (const t in n) le(t, n[t]);
 }
-function Ne(n) {
+function He(n) {
   return qi[n] || {};
 }
 function Xs(n) {
@@ -1812,7 +1812,7 @@ function $i(n, e) {
   }
   return [i, a];
 }
-const so = /* @__PURE__ */ new Set(["desc", "metadata", "title"]), Zi = (n) => so.has(n.nodeName), Hs = (n, e, t = {}) => {
+const so = /* @__PURE__ */ new Set(["desc", "metadata", "title"]), Zi = (n) => so.has(n.nodeName), Ns = (n, e, t = {}) => {
   const i = { ...e };
   for (const a in i) i[a].valueOf() === t[a] && delete i[a];
   Object.keys(i).length ? n.node.setAttribute("data-svgjs", JSON.stringify(i)) : (n.node.removeAttribute("data-svgjs"), n.node.removeAttribute("svgjs:data"));
@@ -1849,12 +1849,12 @@ function ue(n, e = n.name, t = !1) {
   return ut[e] = n, t && (ut[ma] = n), Xs(Object.getOwnPropertyNames(n.prototype)), n;
 }
 let ro = 1e3;
-function Ns(n) {
+function Hs(n) {
   return "Svgjs" + Mt(n) + ro++;
 }
 function Fs(n) {
   for (let e = n.children.length - 1; e >= 0; e--) Fs(n.children[e]);
-  return n.id && (n.id = Ns(n.nodeName)), n;
+  return n.id && (n.id = Hs(n.nodeName)), n;
 }
 function re(n, e) {
   let t, i;
@@ -2576,7 +2576,7 @@ class it extends Ut {
     return this.xml(e, t, "http://www.w3.org/1999/xhtml");
   }
   id(e) {
-    return e !== void 0 || this.node.id || (this.node.id = Ns(this.type)), this.attr("id", e);
+    return e !== void 0 || this.node.id || (this.node.id = Hs(this.type)), this.attr("id", e);
   }
   index(e) {
     return [].slice.call(this.node.childNodes).indexOf(e.node);
@@ -2745,7 +2745,7 @@ let Oe = class extends it {
     return this.attr("width", n);
   }
   writeDataToDom() {
-    return Hs(this, this.dom), super.writeDataToDom();
+    return Ns(this, this.dom), super.writeDataToDom();
   }
   x(n) {
     return this.attr("x", n);
@@ -2974,7 +2974,7 @@ re(_t, wo), le({ Container: { gradient(...n) {
 } }, Defs: { gradient: we((function(n, e) {
   return this.put(new _t(n)).update(e);
 })) } }), ue(_t, "Gradient");
-class Ht extends Xe {
+class Nt extends Xe {
   constructor(e, t = e) {
     super(Ae("pattern", e), t);
   }
@@ -3000,8 +3000,8 @@ class Ht extends Xe {
 le({ Container: { pattern(...n) {
   return this.defs().pattern(...n);
 } }, Defs: { pattern: we((function(n, e, t) {
-  return this.put(new Ht()).update(t).attr({ x: 0, y: 0, width: n, height: e, patternUnits: "userSpaceOnUse" });
-})) } }), ue(Ht, "Pattern");
+  return this.put(new Nt()).update(t).attr({ x: 0, y: 0, width: n, height: e, patternUnits: "userSpaceOnUse" });
+})) } }), ue(Nt, "Pattern");
 let ai = class extends De {
   constructor(n, e = n) {
     super(Ae("image", n), e);
@@ -3010,8 +3010,8 @@ let ai = class extends De {
     if (!n) return this;
     const t = new de.window.Image();
     return Ke(t, "load", (function(i) {
-      const a = this.parent(Ht);
-      this.width() === 0 && this.height() === 0 && this.size(t.width, t.height), a instanceof Ht && a.width() === 0 && a.height() === 0 && a.size(this.width(), this.height()), typeof e == "function" && e.call(this, i);
+      const a = this.parent(Nt);
+      this.width() === 0 && this.height() === 0 && this.size(t.width, t.height), a instanceof Nt && a.width() === 0 && a.height() === 0 && a.size(this.width(), this.height()), typeof e == "function" && e.call(this, i);
     }), this), Ke(t, "load error", (function() {
       Ge(t);
     })), this.attr("href", t.src = n, Pt);
@@ -3341,7 +3341,7 @@ class qe extends ft {
 }
 const tr = (n) => {
   const e = typeof n;
-  return e === "number" ? oe : e === "string" ? ve.isColor(n) ? ve : Qe.test(n) ? va.test(n) ? qe : ft : Ds.test(n) ? oe : ta : ia.indexOf(n.constructor) > -1 ? n.constructor : Array.isArray(n) ? ft : e === "object" ? Nt : ta;
+  return e === "number" ? oe : e === "string" ? ve.isColor(n) ? ve : Qe.test(n) ? va.test(n) ? qe : ft : Ds.test(n) ? oe : ta : ia.indexOf(n.constructor) > -1 ? n.constructor : Array.isArray(n) ? ft : e === "object" ? Ht : ta;
 };
 class ot {
   constructor(e) {
@@ -3370,7 +3370,7 @@ class ot {
   _set(e) {
     this._type || this.type(tr(e));
     let t = new this._type(e);
-    return this._type === ve && (t = this._to ? t[this._to[4]]() : this._from ? t[this._from[4]]() : t), this._type === Nt && (t = this._to ? t.align(this._to) : this._from ? t.align(this._from) : t), t = t.toConsumable(), this._morphObj = this._morphObj || new this._type(), this._context = this._context || Array.apply(null, Array(t.length)).map(Object).map((function(i) {
+    return this._type === ve && (t = this._to ? t[this._to[4]]() : this._from ? t[this._from[4]]() : t), this._type === Ht && (t = this._to ? t.align(this._to) : this._from ? t.align(this._from) : t), t = t.toConsumable(), this._morphObj = this._morphObj || new this._type(), this._context = this._context || Array.apply(null, Array(t.length)).map(Object).map((function(i) {
       return i.done = !0, i;
     })), t;
   }
@@ -3403,7 +3403,7 @@ class qt {
 }
 qt.defaults = { scaleX: 1, scaleY: 1, shear: 0, rotate: 0, translateX: 0, translateY: 0, originX: 0, originY: 0 };
 const To = (n, e) => n[0] < e[0] ? -1 : n[0] > e[0] ? 1 : 0;
-class Nt {
+class Ht {
   constructor(...e) {
     this.init(...e);
   }
@@ -3446,7 +3446,7 @@ class Nt {
     return e;
   }
 }
-const ia = [ta, qt, Nt];
+const ia = [ta, qt, Ht];
 class wt extends De {
   constructor(e, t = e) {
     super(Ae("path", e), t);
@@ -3922,10 +3922,10 @@ re(Fe, { attr(n, e) {
     const o = Object.keys(r), l = (h = s, o.filter(((d) => !h.includes(d))));
     var h;
     if (l.length) {
-      const d = this.element()[n](l), u = new Nt(a.from()).valueOf();
+      const d = this.element()[n](l), u = new Ht(a.from()).valueOf();
       Object.assign(u, d), a.from(u);
     }
-    const c = new Nt(a.to()).valueOf();
+    const c = new Ht(a.to()).valueOf();
     Object.assign(c, r), a.to(c), s = o, i = r;
   })), this._rememberMorpher(n, a), this;
 }, zoom(n, e) {
@@ -4110,7 +4110,7 @@ class $e extends De {
     return this.dom = e, this.dom.leading = new oe(e.leading || 1.3), this;
   }
   writeDataToDom() {
-    return Hs(this, this.dom, { leading: 1.3 }), this;
+    return Ns(this, this.dom, { leading: 1.3 }), this;
   }
   text(e) {
     if (e === void 0) {
@@ -4383,7 +4383,7 @@ le({ Container: { use: we((function(n, e) {
   return this.put(new os()).use(n, e);
 })) } }), ue(os, "Use");
 const zo = Ye;
-re([aa, sa, ai, Ht, si], Ne("viewbox")), re([ht, dt, ct, wt], Ne("marker")), re($e, Ne("Text")), re(wt, Ne("Path")), re(ui, Ne("Defs")), re([$e, ni], Ne("Tspan")), re([ri, ii, _t, Fe], Ne("radius")), re(Ut, Ne("EventTarget")), re(it, Ne("Dom")), re(Oe, Ne("Element")), re(De, Ne("Shape")), re([Xe, Ks], Ne("Container")), re(_t, Ne("Gradient")), re(Fe, Ne("Runner")), gt.extend([...new Set(Ys)]), (function(n = []) {
+re([aa, sa, ai, Nt, si], He("viewbox")), re([ht, dt, ct, wt], He("marker")), re($e, He("Text")), re(wt, He("Path")), re(ui, He("Defs")), re([$e, ni], He("Tspan")), re([ri, ii, _t, Fe], He("radius")), re(Ut, He("EventTarget")), re(it, He("Dom")), re(Oe, He("Element")), re(De, He("Shape")), re([Xe, Ks], He("Container")), re(_t, He("Gradient")), re(Fe, He("Runner")), gt.extend([...new Set(Ys)]), (function(n = []) {
   ia.push(...[].concat(n));
 })([oe, ve, Me, ie, ft, at, qe, fe]), re(ia, { to(n) {
   return new ot().type(this.constructor).from(this.toArray()).to(n);
@@ -4590,7 +4590,7 @@ var Re = (function() {
   }
   return $(n, [{ key: "roundPathCorners", value: function(e, t) {
     function i(A, S, P) {
-      var T = S.x - A.x, E = S.y - A.y, R = Math.sqrt(T * T + E * E);
+      var T = S.x - A.x, I = S.y - A.y, R = Math.sqrt(T * T + I * I);
       return a(A, S, Math.min(1, P / R));
     }
     function a(A, S, P) {
@@ -4671,14 +4671,14 @@ var Re = (function() {
       var T = r.match(/^M\s+[\d.-]+\s+[\d.-]+/);
       T && (s = s.replace(/^M\s+0\s+0/, T[0]));
     }
-    var E = !!(S && !C.globals.resized || P && C.globals.dataChanged && C.globals.shouldAnimate);
-    E ? t = s : (t = r, C.globals.animationEnded = !0);
+    var I = !!(S && !C.globals.resized || P && C.globals.dataChanged && C.globals.shouldAnimate);
+    I ? t = s : (t = r, C.globals.animationEnded = !0);
     var R = C.config.stroke.dashArray, z = 0;
     z = Array.isArray(R) ? R[a] : C.config.stroke.dashArray;
     var Y = this.drawPath({ d: t, stroke: o, strokeWidth: l, fill: c, fillOpacity: 1, classes: p, strokeLinecap: h, strokeDashArray: z });
     Y.attr("index", a), b && (f === "bar" && !C.globals.isHorizontal || C.globals.comboCharts ? Y.attr({ "clip-path": "url(#gridRectBarMask".concat(C.globals.cuid, ")") }) : Y.attr({ "clip-path": "url(#gridRectMask".concat(C.globals.cuid, ")") })), C.config.chart.dropShadow.enabled && v && k.dropShadow(Y, C.config.chart.dropShadow, a), y && (Y.node.addEventListener("mouseenter", this.pathMouseEnter.bind(this, Y)), Y.node.addEventListener("mouseleave", this.pathMouseLeave.bind(this, Y)), Y.node.addEventListener("mousedown", this.pathMouseDown.bind(this, Y))), Y.attr({ pathTo: r, pathFrom: s });
-    var H = { el: Y, j: i, realIndex: a, pathFrom: s, pathTo: r, fill: c, strokeWidth: l, delay: d };
-    return !S || C.globals.resized || C.globals.dataChanged ? !C.globals.resized && C.globals.dataChanged || A.showDelayedElements() : A.animatePathsGradually(D(D({}, H), {}, { speed: u })), C.globals.dataChanged && P && E && A.animatePathsGradually(D(D({}, H), {}, { speed: g })), Y;
+    var N = { el: Y, j: i, realIndex: a, pathFrom: s, pathTo: r, fill: c, strokeWidth: l, delay: d };
+    return !S || C.globals.resized || C.globals.dataChanged ? !C.globals.resized && C.globals.dataChanged || A.showDelayedElements() : A.animatePathsGradually(D(D({}, N), {}, { speed: u })), C.globals.dataChanged && P && I && A.animatePathsGradually(D(D({}, N), {}, { speed: g })), Y;
   } }, { key: "drawPattern", value: function(e, t, i) {
     var a = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : "#a8a8a8", s = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : 0;
     return this.w.globals.dom.Paper.pattern(t, i, (function(r) {
@@ -5322,7 +5322,7 @@ var Re = (function() {
       }
     }
   } }]), n;
-})(), Ho = (function() {
+})(), No = (function() {
   function n(e) {
     q(this, n), this.w = e.w, this.annoCtx = e, this.helpers = new gi(this.annoCtx), this.axesUtils = new st(this.annoCtx);
   }
@@ -5358,7 +5358,7 @@ var Re = (function() {
       a.yAxisIndex = e.axesUtils.translateYAxisIndex(a.yAxisIndex), e.axesUtils.isYAxisHidden(a.yAxisIndex) && e.axesUtils.yAxisAllSeriesCollapsed(a.yAxisIndex) || e.addYaxisAnnotation(a, i.node, s);
     })), i;
   } }]), n;
-})(), No = (function() {
+})(), Ho = (function() {
   function n(e) {
     q(this, n), this.w = e.w, this.annoCtx = e, this.helpers = new gi(this.annoCtx);
   }
@@ -5417,7 +5417,7 @@ var Re = (function() {
   } }]), n;
 })(), Fo = (function() {
   function n(e) {
-    q(this, n), this.ctx = e, this.w = e.w, this.graphics = new X(this.ctx), this.w.globals.isBarHorizontal && (this.invertAxis = !0), this.helpers = new gi(this), this.xAxisAnnotations = new Xo(this), this.yAxisAnnotations = new Ho(this), this.pointsAnnotations = new No(this), this.w.globals.isBarHorizontal && this.w.config.yaxis[0].reversed && (this.inversedReversedAxis = !0), this.xDivision = this.w.globals.gridWidth / this.w.globals.dataPoints;
+    q(this, n), this.ctx = e, this.w = e.w, this.graphics = new X(this.ctx), this.w.globals.isBarHorizontal && (this.invertAxis = !0), this.helpers = new gi(this), this.xAxisAnnotations = new Xo(this), this.yAxisAnnotations = new No(this), this.pointsAnnotations = new Ho(this), this.w.globals.isBarHorizontal && this.w.config.yaxis[0].reversed && (this.inversedReversedAxis = !0), this.xDivision = this.w.globals.gridWidth / this.w.globals.dataPoints;
   }
   return $(n, [{ key: "drawAxesAnnotations", value: function() {
     var e = this.w;
@@ -5442,12 +5442,12 @@ var Re = (function() {
   } }, { key: "addPointAnnotation", value: function(e, t, i) {
     this.pointsAnnotations.addPointAnnotation(e, t, i);
   } }, { key: "addText", value: function(e, t) {
-    var i = e.x, a = e.y, s = e.text, r = e.textAnchor, o = e.foreColor, l = e.fontSize, h = e.fontFamily, c = e.fontWeight, d = e.cssClass, u = e.backgroundColor, g = e.borderWidth, p = e.strokeDashArray, f = e.borderRadius, x = e.borderColor, b = e.appendTo, m = b === void 0 ? ".apexcharts-svg" : b, y = e.paddingLeft, w = y === void 0 ? 4 : y, v = e.paddingRight, C = v === void 0 ? 4 : v, k = e.paddingBottom, A = k === void 0 ? 2 : k, S = e.paddingTop, P = S === void 0 ? 2 : S, T = this.w, E = this.graphics.drawText({ x: i, y: a, text: s, textAnchor: r || "start", fontSize: l || "12px", fontWeight: c || "regular", fontFamily: h || T.config.chart.fontFamily, foreColor: o || T.config.chart.foreColor, cssClass: d }), R = T.globals.dom.baseEl.querySelector(m);
-    R && R.appendChild(E.node);
-    var z = E.bbox();
+    var i = e.x, a = e.y, s = e.text, r = e.textAnchor, o = e.foreColor, l = e.fontSize, h = e.fontFamily, c = e.fontWeight, d = e.cssClass, u = e.backgroundColor, g = e.borderWidth, p = e.strokeDashArray, f = e.borderRadius, x = e.borderColor, b = e.appendTo, m = b === void 0 ? ".apexcharts-svg" : b, y = e.paddingLeft, w = y === void 0 ? 4 : y, v = e.paddingRight, C = v === void 0 ? 4 : v, k = e.paddingBottom, A = k === void 0 ? 2 : k, S = e.paddingTop, P = S === void 0 ? 2 : S, T = this.w, I = this.graphics.drawText({ x: i, y: a, text: s, textAnchor: r || "start", fontSize: l || "12px", fontWeight: c || "regular", fontFamily: h || T.config.chart.fontFamily, foreColor: o || T.config.chart.foreColor, cssClass: d }), R = T.globals.dom.baseEl.querySelector(m);
+    R && R.appendChild(I.node);
+    var z = I.bbox();
     if (s) {
       var Y = this.graphics.drawRect(z.x - w, z.y - P, z.width + w + C, z.height + A + P, f, u || "transparent", 1, g, x, p);
-      R.insertBefore(Y.node, E.node);
+      R.insertBefore(Y.node, I.node);
     }
   } }, { key: "addImage", value: function(e, t) {
     var i = this.w, a = e.path, s = e.x, r = s === void 0 ? 0 : s, o = e.y, l = o === void 0 ? 0 : o, h = e.width, c = h === void 0 ? 20 : h, d = e.height, u = d === void 0 ? 20 : d, g = e.appendTo, p = g === void 0 ? ".apexcharts-svg" : g, f = i.globals.dom.Paper.image(a);
@@ -6420,15 +6420,15 @@ var Re = (function() {
       A === 0 && y === 1 && o / 2 === m && w === 1 && (S = u.globals.gridWidth / 2);
       var P = l.axesUtils.getLabel(a, u.globals.timescaleLabels, S, A, c, g, e), T = 28;
       if (u.globals.rotateXLabels && e && (T = 22), u.config.xaxis.title.text && u.config.xaxis.position === "top" && (T += parseFloat(u.config.xaxis.title.style.fontSize) + 2), e || (T = T + parseFloat(g) + (u.globals.xAxisLabelsHeight - u.globals.xAxisGroupLabelsHeight) + (u.globals.rotateXLabels ? 10 : 0)), P = u.config.xaxis.tickAmount !== void 0 && u.config.xaxis.tickAmount !== "dataPoints" && u.config.xaxis.type !== "datetime" ? l.axesUtils.checkLabelBasedOnTickamount(A, P, y) : l.axesUtils.checkForOverflowingLabels(A, P, y, c, d), u.config.xaxis.labels.show) {
-        var E = t.drawText({ x: P.x, y: l.offY + u.config.xaxis.labels.offsetY + T - (u.config.xaxis.position === "top" ? u.globals.xAxisHeight + u.config.xaxis.axisTicks.height - 2 : 0), text: P.text, textAnchor: "middle", fontWeight: P.isBold ? 600 : x, fontSize: g, fontFamily: p, foreColor: Array.isArray(f) ? e && u.config.xaxis.convertedCatToNumeric ? f[u.globals.minX + A - 1] : f[A] : f, isPlainText: !1, cssClass: (e ? "apexcharts-xaxis-label " : "apexcharts-xaxis-group-label ") + b });
-        if (i.add(E), E.on("click", (function(z) {
+        var I = t.drawText({ x: P.x, y: l.offY + u.config.xaxis.labels.offsetY + T - (u.config.xaxis.position === "top" ? u.globals.xAxisHeight + u.config.xaxis.axisTicks.height - 2 : 0), text: P.text, textAnchor: "middle", fontWeight: P.isBold ? 600 : x, fontSize: g, fontFamily: p, foreColor: Array.isArray(f) ? e && u.config.xaxis.convertedCatToNumeric ? f[u.globals.minX + A - 1] : f[A] : f, isPlainText: !1, cssClass: (e ? "apexcharts-xaxis-label " : "apexcharts-xaxis-group-label ") + b });
+        if (i.add(I), I.on("click", (function(z) {
           if (typeof u.config.chart.events.xAxisLabelClick == "function") {
             var Y = Object.assign({}, u, { labelIndex: A });
             u.config.chart.events.xAxisLabelClick(z, l.ctx, Y);
           }
         })), e) {
           var R = document.createElementNS(u.globals.SVGNS, "title");
-          R.textContent = Array.isArray(P.text) ? P.text.join(" ") : P.text, E.node.appendChild(R), P.text !== "" && (c.push(P.text), d.push(P));
+          R.textContent = Array.isArray(P.text) ? P.text.join(" ") : P.text, I.node.appendChild(R), P.text !== "" && (c.push(P.text), d.push(P));
         }
       }
       A < y - 1 && (m += r(A + 1, o));
@@ -6454,8 +6454,8 @@ var Re = (function() {
           s.config.chart.events.xAxisLabelClick(z, a.ctx, Y);
         }
       }));
-      var E = document.createElementNS(s.globals.SVGNS, "title");
-      if (E.textContent = Array.isArray(C) ? C.join(" ") : C, T.node.appendChild(E), s.config.yaxis[e].labels.rotate !== 0) {
+      var I = document.createElementNS(s.globals.SVGNS, "title");
+      if (I.textContent = Array.isArray(C) ? C.join(" ") : C, T.node.appendChild(I), s.config.yaxis[e].labels.rotate !== 0) {
         var R = r.rotateAroundCenter(T.node);
         T.node.setAttribute("transform", "rotate(".concat(s.config.yaxis[e].labels.rotate, " 0 ").concat(R.y, ")"));
       }
@@ -6653,8 +6653,8 @@ var Re = (function() {
         }
         else if (s) if (u) t = e + m * x;
         else {
-          var E = t;
-          t = m * Math.ceil(t / m), Math.abs(t - e) / L.getGCD(b, m) > a && (t = e + m * g, t += m * Math.ceil((E - t) / m));
+          var I = t;
+          t = m * Math.ceil(t / m), Math.abs(t - e) / L.getGCD(b, m) > a && (t = e + m * g, t += m * Math.ceil((I - t) / m));
         }
       } else if (c.isMultipleYAxis && u) {
         var R = m * Math.floor(e / m), z = R + m * x;
@@ -6663,15 +6663,15 @@ var Re = (function() {
       b = Math.abs(t - e), m = L.getGCD(b, m), x = Math.round(b / m);
     }
     if (u || s || r || (x = Math.ceil((b - l) / (m + l))) > 16 && L.getPrimeFactors(x).length < 2 && x++, !u && i.forceNiceScale && c.yValueDecimal === 0 && x > b && (x = b, m = Math.round(b / x)), x > a && (!u && !d || i.forceNiceScale)) {
-      var Y = L.getPrimeFactors(x), H = Y.length - 1, N = x;
-      e: for (var U = 0; U < H; U++) for (var Q = 0; Q <= H - U; Q++) {
-        for (var O = Math.min(Q + U, H), _ = N, Z = 1, ee = Q; ee <= O; ee++) Z *= Y[ee];
+      var Y = L.getPrimeFactors(x), N = Y.length - 1, H = x;
+      e: for (var U = 0; U < N; U++) for (var Q = 0; Q <= N - U; Q++) {
+        for (var O = Math.min(Q + U, N), _ = H, Z = 1, ee = Q; ee <= O; ee++) Z *= Y[ee];
         if ((_ /= Z) < a) {
-          N = _;
+          H = _;
           break e;
         }
       }
-      m = N === x ? b : b / N, x = Math.round(b / m);
+      m = H === x ? b : b / H, x = Math.round(b / m);
     }
     c.isMultipleYAxis && c.multiAxisTickAmount == 0 && c.ignoreYAxisIndexes.indexOf(o) < 0 && (c.multiAxisTickAmount = x);
     var W = e - m, se = m * l;
@@ -6738,9 +6738,9 @@ var Re = (function() {
             !c && t.series[o[A]].type && (c = t.series[o[A]].type);
             var S = o[A];
             d = t.series[S].group ? t.series[S].group : "axis-".concat(l), !(i.collapsedSeriesIndices.indexOf(S) < 0 && i.ancillaryCollapsedSeriesIndices.indexOf(S) < 0) || (i.allSeriesCollapsed = !1, h.forEach((function(P, T) {
-              if (t.series[S].group === P) for (var E = 0; E < i.series[S].length; E++) {
-                var R = i.series[S][E];
-                R >= 0 ? w[T][E] += R : v[T][E] += R, y[T][E] += R, p = Math.min(p, R), f = Math.max(f, R);
+              if (t.series[S].group === P) for (var I = 0; I < i.series[S].length; I++) {
+                var R = i.series[S][I];
+                R >= 0 ? w[T][I] += R : v[T][I] += R, y[T][I] += R, p = Math.min(p, R), f = Math.max(f, R);
               }
             }))), c !== "bar" && c !== "column" || i.barGroups.push(d);
           }, k = 0; k < o.length; k++) C(k);
@@ -7961,7 +7961,7 @@ var Re = (function() {
     l.globals.isRangeBar ? (a = l.globals.yAxisScale[0].niceMin + p * c.invertedYRatio, s = l.globals.yAxisScale[0].niceMin + f * c.invertedYRatio) : (a = l.globals.xAxisScale.niceMin + p * c.xRatio, s = l.globals.xAxisScale.niceMin + f * c.xRatio);
     var m = [], y = [];
     if (l.config.yaxis.forEach((function(P, T) {
-      var E = l.globals.seriesYAxisMap[T][0], R = l.globals.yAxisScale[T].niceMax - c.yRatio[E] * x, z = l.globals.yAxisScale[T].niceMax - c.yRatio[E] * b;
+      var I = l.globals.seriesYAxisMap[T][0], R = l.globals.yAxisScale[T].niceMax - c.yRatio[I] * x, z = l.globals.yAxisScale[T].niceMax - c.yRatio[I] * b;
       m.push(R), y.push(z);
     })), h.dragged && (h.dragX > 10 || h.dragY > 10) && a !== s) {
       if (l.globals.zoomEnabled) {
@@ -8120,17 +8120,17 @@ var Re = (function() {
       x = i.getSeriesName({ fn: k.yLbTitleFormatter, index: a, seriesIndex: a, j: s }), c.config.chart.type === "treemap" && (x = k.yLbTitleFormatter(String(c.config.series[a].data[s].x), { series: c.globals.series, seriesIndex: a, dataPointIndex: s, w: c }));
       var A = c.config.tooltip.inverseOrder ? C : v;
       if (c.globals.axisCharts) {
-        var S = function(E) {
-          var R, z, Y, H;
-          return c.globals.isRangeData ? k.yLbFormatter((R = c.globals.seriesRangeStart) === null || R === void 0 || (z = R[E]) === null || z === void 0 ? void 0 : z[s], { series: c.globals.seriesRangeStart, seriesIndex: E, dataPointIndex: s, w: c }) + " - " + k.yLbFormatter((Y = c.globals.seriesRangeEnd) === null || Y === void 0 || (H = Y[E]) === null || H === void 0 ? void 0 : H[s], { series: c.globals.seriesRangeEnd, seriesIndex: E, dataPointIndex: s, w: c }) : k.yLbFormatter(c.globals.series[E][s], { series: c.globals.series, seriesIndex: E, dataPointIndex: s, w: c });
+        var S = function(I) {
+          var R, z, Y, N;
+          return c.globals.isRangeData ? k.yLbFormatter((R = c.globals.seriesRangeStart) === null || R === void 0 || (z = R[I]) === null || z === void 0 ? void 0 : z[s], { series: c.globals.seriesRangeStart, seriesIndex: I, dataPointIndex: s, w: c }) + " - " + k.yLbFormatter((Y = c.globals.seriesRangeEnd) === null || Y === void 0 || (N = Y[I]) === null || N === void 0 ? void 0 : N[s], { series: c.globals.seriesRangeEnd, seriesIndex: I, dataPointIndex: s, w: c }) : k.yLbFormatter(c.globals.series[I][s], { series: c.globals.series, seriesIndex: I, dataPointIndex: s, w: c });
         };
-        if (l) k = i.getFormatters(A), x = i.getSeriesName({ fn: k.yLbTitleFormatter, index: A, seriesIndex: a, j: s }), b = c.globals.colors[A], t = S(A), u(A) && (d = c.globals.seriesGoals[A][s].map((function(E) {
-          return { attrs: E, val: k.yLbFormatter(E.value, { seriesIndex: A, dataPointIndex: s, w: c }) };
+        if (l) k = i.getFormatters(A), x = i.getSeriesName({ fn: k.yLbTitleFormatter, index: A, seriesIndex: a, j: s }), b = c.globals.colors[A], t = S(A), u(A) && (d = c.globals.seriesGoals[A][s].map((function(I) {
+          return { attrs: I, val: k.yLbFormatter(I.value, { seriesIndex: A, dataPointIndex: s, w: c }) };
         })));
         else {
           var P, T = h == null || (P = h.target) === null || P === void 0 ? void 0 : P.getAttribute("fill");
-          T && (T.indexOf("url") !== -1 ? T.indexOf("Pattern") !== -1 && (b = c.globals.dom.baseEl.querySelector(T.substr(4).slice(0, -1)).childNodes[0].getAttribute("stroke")) : b = T), t = S(a), u(a) && Array.isArray(c.globals.seriesGoals[a][s]) && (d = c.globals.seriesGoals[a][s].map((function(E) {
-            return { attrs: E, val: k.yLbFormatter(E.value, { seriesIndex: a, dataPointIndex: s, w: c }) };
+          T && (T.indexOf("url") !== -1 ? T.indexOf("Pattern") !== -1 && (b = c.globals.dom.baseEl.querySelector(T.substr(4).slice(0, -1)).childNodes[0].getAttribute("stroke")) : b = T), t = S(a), u(a) && Array.isArray(c.globals.seriesGoals[a][s]) && (d = c.globals.seriesGoals[a][s].map((function(I) {
+            return { attrs: I, val: k.yLbFormatter(I.value, { seriesIndex: a, dataPointIndex: s, w: c }) };
           })));
         }
       }
@@ -8626,15 +8626,15 @@ var Re = (function() {
       k.globals.markers.largestSize > 0 ? A.marker.enlargePoints(a) : A.tooltipPosition.moveDynamicPointsOnHover(a);
     };
     if (k.config.legend.tooltipHoverFormatter) {
-      var E = k.config.legend.tooltipHoverFormatter, R = Array.from(this.legendLabels);
+      var I = k.config.legend.tooltipHoverFormatter, R = Array.from(this.legendLabels);
       R.forEach((function(ee) {
         var W = ee.getAttribute("data:default-text");
         ee.innerHTML = decodeURIComponent(W);
       }));
       for (var z = 0; z < R.length; z++) {
-        var Y = R[z], H = parseInt(Y.getAttribute("i"), 10), N = decodeURIComponent(Y.getAttribute("data:default-text")), U = E(N, { seriesIndex: C ? H : i, dataPointIndex: a, w: k });
-        if (C) Y.innerHTML = k.globals.collapsedSeriesIndices.indexOf(H) < 0 ? U : N;
-        else if (Y.innerHTML = H === i ? U : N, i === H) break;
+        var Y = R[z], N = parseInt(Y.getAttribute("i"), 10), H = decodeURIComponent(Y.getAttribute("data:default-text")), U = I(H, { seriesIndex: C ? N : i, dataPointIndex: a, w: k });
+        if (C) Y.innerHTML = k.globals.collapsedSeriesIndices.indexOf(N) < 0 ? U : H;
+        else if (Y.innerHTML = N === i ? U : H, i === N) break;
       }
     }
     var Q = D(D({ ttItems: s, i, j: a }, ((r = k.globals.seriesRange) === null || r === void 0 || (o = r[i]) === null || o === void 0 || (l = o[a]) === null || l === void 0 || (h = l.y[0]) === null || h === void 0 ? void 0 : h.y1) !== void 0 && { y1: (c = k.globals.seriesRange) === null || c === void 0 || (d = c[i]) === null || d === void 0 || (u = d[a]) === null || u === void 0 || (g = u.y[0]) === null || g === void 0 ? void 0 : g.y1 }), ((p = k.globals.seriesRange) === null || p === void 0 || (f = p[i]) === null || f === void 0 || (x = f[a]) === null || x === void 0 || (b = x.y[0]) === null || b === void 0 ? void 0 : b.y2) !== void 0 && { y2: (m = k.globals.seriesRange) === null || m === void 0 || (y = m[i]) === null || y === void 0 || (w = y[a]) === null || w === void 0 || (v = w.y[0]) === null || v === void 0 ? void 0 : v.y2 });
@@ -8654,15 +8654,15 @@ var Re = (function() {
   return $(n, [{ key: "handleBarDataLabels", value: function(e) {
     var t, i, a = e.x, s = e.y, r = e.y1, o = e.y2, l = e.i, h = e.j, c = e.realIndex, d = e.columnGroupIndex, u = e.series, g = e.barHeight, p = e.barWidth, f = e.barXPosition, x = e.barYPosition, b = e.visibleSeries, m = this.w, y = new X(this.barCtx.ctx), w = Array.isArray(this.barCtx.strokeWidth) ? this.barCtx.strokeWidth[c] : this.barCtx.strokeWidth;
     m.globals.isXNumeric && !m.globals.isBarHorizontal ? (t = a + parseFloat(p * (b + 1)), i = s + parseFloat(g * (b + 1)) - w) : (t = a + parseFloat(p * b), i = s + parseFloat(g * b));
-    var v, C = null, k = a, A = s, S = {}, P = m.config.dataLabels, T = this.barCtx.barOptions.dataLabels, E = this.barCtx.barOptions.dataLabels.total;
+    var v, C = null, k = a, A = s, S = {}, P = m.config.dataLabels, T = this.barCtx.barOptions.dataLabels, I = this.barCtx.barOptions.dataLabels.total;
     x !== void 0 && this.barCtx.isRangeBar && (i = x, A = x), f !== void 0 && this.barCtx.isVerticalGroupedRangeBar && (t = f, k = f);
     var R = P.offsetX, z = P.offsetY, Y = { width: 0, height: 0 };
     if (m.config.dataLabels.enabled) {
-      var H = m.globals.series[l][h];
-      Y = y.getTextRects(m.config.dataLabels.formatter ? m.config.dataLabels.formatter(H, D(D({}, m), {}, { seriesIndex: l, dataPointIndex: h, w: m })) : m.globals.yLabelFormatters[0](H), parseFloat(P.style.fontSize));
+      var N = m.globals.series[l][h];
+      Y = y.getTextRects(m.config.dataLabels.formatter ? m.config.dataLabels.formatter(N, D(D({}, m), {}, { seriesIndex: l, dataPointIndex: h, w: m })) : m.globals.yLabelFormatters[0](N), parseFloat(P.style.fontSize));
     }
-    var N = { x: a, y: s, i: l, j: h, realIndex: c, columnGroupIndex: d, bcx: t, bcy: i, barHeight: g, barWidth: p, textRects: Y, strokeWidth: w, dataLabelsX: k, dataLabelsY: A, dataLabelsConfig: P, barDataLabelsConfig: T, barTotalDataLabelsConfig: E, offX: R, offY: z };
-    return S = this.barCtx.isHorizontal ? this.calculateBarsDataLabelsPosition(N) : this.calculateColumnsDataLabelsPosition(N), v = this.drawCalculatedDataLabels({ x: S.dataLabelsX, y: S.dataLabelsY, val: this.barCtx.isRangeBar ? [r, o] : m.config.chart.stackType === "100%" ? u[c][h] : m.globals.series[c][h], i: c, j: h, barWidth: p, barHeight: g, textRects: Y, dataLabelsConfig: P }), m.config.chart.stacked && E.enabled && (C = this.drawTotalDataLabels({ x: S.totalDataLabelsX, y: S.totalDataLabelsY, barWidth: p, barHeight: g, realIndex: c, textAnchor: S.totalDataLabelsAnchor, val: this.getStackedTotalDataLabel({ realIndex: c, j: h }), dataLabelsConfig: P, barTotalDataLabelsConfig: E })), { dataLabelsPos: S, dataLabels: v, totalDataLabels: C };
+    var H = { x: a, y: s, i: l, j: h, realIndex: c, columnGroupIndex: d, bcx: t, bcy: i, barHeight: g, barWidth: p, textRects: Y, strokeWidth: w, dataLabelsX: k, dataLabelsY: A, dataLabelsConfig: P, barDataLabelsConfig: T, barTotalDataLabelsConfig: I, offX: R, offY: z };
+    return S = this.barCtx.isHorizontal ? this.calculateBarsDataLabelsPosition(H) : this.calculateColumnsDataLabelsPosition(H), v = this.drawCalculatedDataLabels({ x: S.dataLabelsX, y: S.dataLabelsY, val: this.barCtx.isRangeBar ? [r, o] : m.config.chart.stackType === "100%" ? u[c][h] : m.globals.series[c][h], i: c, j: h, barWidth: p, barHeight: g, textRects: Y, dataLabelsConfig: P }), m.config.chart.stacked && I.enabled && (C = this.drawTotalDataLabels({ x: S.totalDataLabelsX, y: S.totalDataLabelsY, barWidth: p, barHeight: g, realIndex: c, textAnchor: S.totalDataLabelsAnchor, val: this.getStackedTotalDataLabel({ realIndex: c, j: h }), dataLabelsConfig: P, barTotalDataLabelsConfig: I })), { dataLabelsPos: S, dataLabels: v, totalDataLabels: C };
   } }, { key: "getStackedTotalDataLabel", value: function(e) {
     var t = e.realIndex, i = e.j, a = this.w, s = this.barCtx.stackedSeriesTotals[i];
     return this.totalFormatter && (s = this.totalFormatter(s, D(D({}, a), {}, { seriesIndex: t, dataPointIndex: i, w: a }))), s;
@@ -8686,15 +8686,15 @@ var Re = (function() {
       case "top":
         f = k ? P ? T + v : T - v : P ? T - g.height / 2 - v : T + g.height + v;
     }
-    var E = T;
+    var I = T;
     if (i.globals.seriesGroups.forEach((function(Y) {
-      var H;
-      (H = t.barCtx[Y.join(",")]) === null || H === void 0 || H.prevY.forEach((function(N) {
-        E = P ? Math.max(N[s], E) : Math.min(N[s], E);
+      var N;
+      (N = t.barCtx[Y.join(",")]) === null || N === void 0 || N.prevY.forEach((function(H) {
+        I = P ? Math.max(H[s], I) : Math.min(H[s], I);
       }));
     })), this.barCtx.lastActiveBarSerieIndex === r && m.enabled) {
       var R = new X(this.barCtx.ctx).getTextRects(this.getStackedTotalDataLabel({ realIndex: r, j: s }), x.fontSize);
-      o = P ? E - R.height / 2 - v - m.offsetY + 18 : E + R.height + v + m.offsetY - 18;
+      o = P ? I - R.height / 2 - v - m.offsetY + 18 : I + R.height + v + m.offsetY - 18;
       var z = S;
       l = C + (i.globals.isXNumeric ? -d * i.globals.barGroups.length / 2 : i.globals.barGroups.length * d / 2 - (i.globals.barGroups.length - 1) * d - z) + m.offsetX;
     }
@@ -8722,8 +8722,8 @@ var Re = (function() {
         T = S ? Math.min(Y[r], T) : Math.max(Y[r], T);
       }));
     })), this.barCtx.lastActiveBarSerieIndex === o && x.enabled) {
-      var E = new X(this.barCtx.ctx).getTextRects(this.getStackedTotalDataLabel({ realIndex: o, j: r }), p.fontSize);
-      S ? (v = T - g - b - x.offsetX, A = "end") : v = T + b + x.offsetX + (this.barCtx.isReversed ? -(c + g) : g), C = k - d.height / 2 + E.height / 2 + x.offsetY + g, i.globals.barGroups.length > 1 && (C -= i.globals.barGroups.length / 2 * (h / 2));
+      var I = new X(this.barCtx.ctx).getTextRects(this.getStackedTotalDataLabel({ realIndex: o, j: r }), p.fontSize);
+      S ? (v = T - g - b - x.offsetX, A = "end") : v = T + b + x.offsetX + (this.barCtx.isReversed ? -(c + g) : g), C = k - d.height / 2 + I.height / 2 + x.offsetY + g, i.globals.barGroups.length > 1 && (C -= i.globals.barGroups.length / 2 * (h / 2));
     }
     return i.config.chart.stacked || (p.textAnchor === "start" ? u - d.width < 0 ? u = S ? d.width + g : g : u + d.width > i.globals.gridWidth && (u = S ? i.globals.gridWidth - g : i.globals.gridWidth - d.width - g) : p.textAnchor === "middle" ? u - d.width / 2 < 0 ? u = d.width / 2 + g : u + d.width / 2 > i.globals.gridWidth && (u = i.globals.gridWidth - d.width / 2 - g) : p.textAnchor === "end" && (u < 1 ? u = d.width + g : u + 1 > i.globals.gridWidth && (u = i.globals.gridWidth - d.width - g))), { bcx: a, bcy: l, dataLabelsX: u, dataLabelsY: k, totalDataLabelsX: v, totalDataLabelsY: C, totalDataLabelsAnchor: A };
   } }, { key: "drawCalculatedDataLabels", value: function(e) {
@@ -8807,8 +8807,8 @@ var Re = (function() {
             var m = p.value;
             o[m][l] = m === f ? "bottom" : m === x ? "top" : "none";
           }
-        } catch (H) {
-          b.e(H);
+        } catch (N) {
+          b.e(N);
         } finally {
           b.f();
         }
@@ -8821,8 +8821,8 @@ var Re = (function() {
             var k = y.value;
             o[k][l] = k === w ? "bottom" : k === v ? "top" : "none";
           }
-        } catch (H) {
-          C.e(H);
+        } catch (N) {
+          C.e(N);
         } finally {
           C.f();
         }
@@ -8834,19 +8834,19 @@ var Re = (function() {
             var T = A.value;
             o[T][l] = T === S ? "top" : "none";
           }
-        } catch (H) {
-          P.e(H);
+        } catch (N) {
+          P.e(N);
         } finally {
           P.f();
         }
-        var E, R = Math.max.apply(Math, c), z = zt(c);
+        var I, R = Math.max.apply(Math, c), z = zt(c);
         try {
-          for (z.s(); !(E = z.n()).done; ) {
-            var Y = E.value;
+          for (z.s(); !(I = z.n()).done; ) {
+            var Y = I.value;
             o[Y][l] = Y === R ? "bottom" : "none";
           }
-        } catch (H) {
-          z.e(H);
+        } catch (N) {
+          z.e(N);
         } finally {
           z.f();
         }
@@ -8978,22 +8978,22 @@ var Re = (function() {
       var S = a.group({ class: "apexcharts-bar-goals-markers" }), P = a.group({ class: "apexcharts-bar-shadows" });
       i.globals.delayedElements.push({ el: P.node }), P.node.classList.add("apexcharts-element-hidden");
       for (var T = 0; T < e[o].length; T++) {
-        var E = this.barHelpers.getStrokeWidth(o, T, b), R = null, z = { indexes: { i: o, j: T, realIndex: b, translationsIndex: C, bc: l }, x: g, y: p, strokeWidth: E, elSeries: y };
+        var I = this.barHelpers.getStrokeWidth(o, T, b), R = null, z = { indexes: { i: o, j: T, realIndex: b, translationsIndex: C, bc: l }, x: g, y: p, strokeWidth: I, elSeries: y };
         this.isHorizontal ? (R = this.drawBarPaths(D(D({}, z), {}, { barHeight: w, zeroW: u, yDivision: c })), v = this.series[o][T] / this.invertedYRatio) : (R = this.drawColumnPaths(D(D({}, z), {}, { xDivision: h, barWidth: v, zeroH: d })), w = this.series[o][T] / this.yRatio[C]);
         var Y = this.barHelpers.getPathFillColor(e, o, T, b);
         if (this.isFunnel && this.barOptions.isFunnel3d && this.pathArr.length && T > 0) {
-          var H, N = this.barHelpers.drawBarShadow({ color: typeof Y.color == "string" && ((H = Y.color) === null || H === void 0 ? void 0 : H.indexOf("url")) === -1 ? Y.color : L.hexToRgba(i.globals.colors[o]), prevPaths: this.pathArr[this.pathArr.length - 1], currPaths: R });
-          P.add(N), i.config.chart.dropShadow.enabled && new Re(this.ctx).dropShadow(N, i.config.chart.dropShadow, b);
+          var N, H = this.barHelpers.drawBarShadow({ color: typeof Y.color == "string" && ((N = Y.color) === null || N === void 0 ? void 0 : N.indexOf("url")) === -1 ? Y.color : L.hexToRgba(i.globals.colors[o]), prevPaths: this.pathArr[this.pathArr.length - 1], currPaths: R });
+          P.add(H), i.config.chart.dropShadow.enabled && new Re(this.ctx).dropShadow(H, i.config.chart.dropShadow, b);
         }
         this.pathArr.push(R);
         var U = this.barHelpers.drawGoalLine({ barXPosition: R.barXPosition, barYPosition: R.barYPosition, goalX: R.goalX, goalY: R.goalY, barHeight: w, barWidth: v });
-        U && S.add(U), p = R.y, g = R.x, T > 0 && x.push(g + v / 2), f.push(p), this.renderSeries(D(D({ realIndex: b, pathFill: Y.color }, Y.useRangeColor ? { lineFill: Y.color } : {}), {}, { j: T, i: o, columnGroupIndex: m, pathFrom: R.pathFrom, pathTo: R.pathTo, strokeWidth: E, elSeries: y, x: g, y: p, series: e, barHeight: Math.abs(R.barHeight ? R.barHeight : w), barWidth: Math.abs(R.barWidth ? R.barWidth : v), elDataLabelsWrap: A, elGoalsMarkers: S, elBarShadows: P, visibleSeries: this.visibleI, type: "bar" }));
+        U && S.add(U), p = R.y, g = R.x, T > 0 && x.push(g + v / 2), f.push(p), this.renderSeries(D(D({ realIndex: b, pathFill: Y.color }, Y.useRangeColor ? { lineFill: Y.color } : {}), {}, { j: T, i: o, columnGroupIndex: m, pathFrom: R.pathFrom, pathTo: R.pathTo, strokeWidth: I, elSeries: y, x: g, y: p, series: e, barHeight: Math.abs(R.barHeight ? R.barHeight : w), barWidth: Math.abs(R.barWidth ? R.barWidth : v), elDataLabelsWrap: A, elGoalsMarkers: S, elBarShadows: P, visibleSeries: this.visibleI, type: "bar" }));
       }
       i.globals.seriesXvalues[b] = x, i.globals.seriesYvalues[b] = f, r.add(y);
     }
     return r;
   } }, { key: "renderSeries", value: function(e) {
-    var t = e.realIndex, i = e.pathFill, a = e.lineFill, s = e.j, r = e.i, o = e.columnGroupIndex, l = e.pathFrom, h = e.pathTo, c = e.strokeWidth, d = e.elSeries, u = e.x, g = e.y, p = e.y1, f = e.y2, x = e.series, b = e.barHeight, m = e.barWidth, y = e.barXPosition, w = e.barYPosition, v = e.elDataLabelsWrap, C = e.elGoalsMarkers, k = e.elBarShadows, A = e.visibleSeries, S = e.type, P = e.classes, T = this.w, E = new X(this.ctx), R = !1;
+    var t = e.realIndex, i = e.pathFill, a = e.lineFill, s = e.j, r = e.i, o = e.columnGroupIndex, l = e.pathFrom, h = e.pathTo, c = e.strokeWidth, d = e.elSeries, u = e.x, g = e.y, p = e.y1, f = e.y2, x = e.series, b = e.barHeight, m = e.barWidth, y = e.barXPosition, w = e.barYPosition, v = e.elDataLabelsWrap, C = e.elGoalsMarkers, k = e.elBarShadows, A = e.visibleSeries, S = e.type, P = e.classes, T = this.w, I = new X(this.ctx), R = !1;
     if (!a) {
       var z = typeof T.globals.stroke.colors[t] == "function" ? (function(Q) {
         var O, _ = T.config.stroke.colors;
@@ -9003,12 +9003,12 @@ var Re = (function() {
     }
     var Y = new sl(this).handleBarDataLabels({ x: u, y: g, y1: p, y2: f, i: r, j: s, series: x, realIndex: t, columnGroupIndex: o, barHeight: b, barWidth: m, barXPosition: y, barYPosition: w, visibleSeries: A });
     T.globals.isBarHorizontal || (Y.dataLabelsPos.dataLabelsX + m < 0 || Y.dataLabelsPos.dataLabelsX - m > T.globals.gridWidth) && (R = !0), T.config.series[r].data[s] && T.config.series[r].data[s].strokeColor && (a = T.config.series[r].data[s].strokeColor), this.isNullValue && (i = "none");
-    var H = s / T.config.chart.animations.animateGradually.delay * (T.config.chart.animations.speed / T.globals.dataPoints) / 2.4;
+    var N = s / T.config.chart.animations.animateGradually.delay * (T.config.chart.animations.speed / T.globals.dataPoints) / 2.4;
     if (!R) {
-      var N = E.renderPaths({ i: r, j: s, realIndex: t, pathFrom: l, pathTo: h, stroke: a, strokeWidth: c, strokeLineCap: T.config.stroke.lineCap, fill: i, animationDelay: H, initialSpeed: T.config.chart.animations.speed, dataChangeSpeed: T.config.chart.animations.dynamicAnimation.speed, className: "apexcharts-".concat(S, "-area ").concat(P), chartType: S });
-      N.attr("clip-path", "url(#gridRectBarMask".concat(T.globals.cuid, ")"));
+      var H = I.renderPaths({ i: r, j: s, realIndex: t, pathFrom: l, pathTo: h, stroke: a, strokeWidth: c, strokeLineCap: T.config.stroke.lineCap, fill: i, animationDelay: N, initialSpeed: T.config.chart.animations.speed, dataChangeSpeed: T.config.chart.animations.dynamicAnimation.speed, className: "apexcharts-".concat(S, "-area ").concat(P), chartType: S });
+      H.attr("clip-path", "url(#gridRectBarMask".concat(T.globals.cuid, ")"));
       var U = T.config.forecastDataPoints;
-      U.count > 0 && s >= T.globals.dataPoints - U.count && (N.node.setAttribute("stroke-dasharray", U.dashArray), N.node.setAttribute("stroke-width", U.strokeWidth), N.node.setAttribute("fill-opacity", U.fillOpacity)), p !== void 0 && f !== void 0 && (N.attr("data-range-y1", p), N.attr("data-range-y2", f)), new Re(this.ctx).setSelectionFilter(N, t, s), d.add(N), N.attr({ cy: Y.dataLabelsPos.bcy, cx: Y.dataLabelsPos.bcx, j: s, val: T.globals.series[r][s], barHeight: b, barWidth: m }), Y.dataLabels !== null && v.add(Y.dataLabels), Y.totalDataLabels && v.add(Y.totalDataLabels), d.add(v), C && d.add(C), k && d.add(k);
+      U.count > 0 && s >= T.globals.dataPoints - U.count && (H.node.setAttribute("stroke-dasharray", U.dashArray), H.node.setAttribute("stroke-width", U.strokeWidth), H.node.setAttribute("fill-opacity", U.fillOpacity)), p !== void 0 && f !== void 0 && (H.attr("data-range-y1", p), H.attr("data-range-y2", f)), new Re(this.ctx).setSelectionFilter(H, t, s), d.add(H), H.attr({ cy: Y.dataLabelsPos.bcy, cx: Y.dataLabelsPos.bcx, j: s, val: T.globals.series[r][s], barHeight: b, barWidth: m }), Y.dataLabels !== null && v.add(Y.dataLabels), Y.totalDataLabels && v.add(Y.totalDataLabels), d.add(v), C && d.add(C), k && d.add(k);
     }
     return d;
   } }, { key: "drawBarPaths", value: function(e) {
@@ -9063,21 +9063,21 @@ var Re = (function() {
       s.yRatio.length > 1 && (s.yaxisIndex = r.globals.seriesYAxisReverseMap[w][0], P = w), s.isReversed = r.config.yaxis[s.yaxisIndex] && r.config.yaxis[s.yaxisIndex].reversed;
       var T = s.graphics.group({ class: "apexcharts-series", seriesName: L.escapeString(r.globals.seriesNames[w]), rel: p + 1, "data:realIndex": w });
       s.ctx.series.addCollapsedClassToSeries(T, w);
-      var E = s.graphics.group({ class: "apexcharts-datalabels", "data:realIndex": w }), R = s.graphics.group({ class: "apexcharts-bar-goals-markers" }), z = 0, Y = 0, H = s.initialPositions(h, c, x, b, m, y, P);
-      c = H.y, z = H.barHeight, b = H.yDivision, y = H.zeroW, h = H.x, Y = H.barWidth, x = H.xDivision, m = H.zeroH, r.globals.barHeight = z, r.globals.barWidth = Y, s.barHelpers.initializeStackedXYVars(s), s.groupCtx.prevY.length === 1 && s.groupCtx.prevY[0].every((function(se) {
+      var I = s.graphics.group({ class: "apexcharts-datalabels", "data:realIndex": w }), R = s.graphics.group({ class: "apexcharts-bar-goals-markers" }), z = 0, Y = 0, N = s.initialPositions(h, c, x, b, m, y, P);
+      c = N.y, z = N.barHeight, b = N.yDivision, y = N.zeroW, h = N.x, Y = N.barWidth, x = N.xDivision, m = N.zeroH, r.globals.barHeight = z, r.globals.barWidth = Y, s.barHelpers.initializeStackedXYVars(s), s.groupCtx.prevY.length === 1 && s.groupCtx.prevY[0].every((function(se) {
         return isNaN(se);
       })) && (s.groupCtx.prevY[0] = s.groupCtx.prevY[0].map((function() {
         return m;
       })), s.groupCtx.prevYF[0] = s.groupCtx.prevYF[0].map((function() {
         return 0;
       })));
-      for (var N = 0; N < r.globals.dataPoints; N++) {
-        var U = s.barHelpers.getStrokeWidth(p, N, w), Q = { indexes: { i: p, j: N, realIndex: w, translationsIndex: P, bc: f }, strokeWidth: U, x: h, y: c, elSeries: T, columnGroupIndex: k, seriesGroup: r.globals.seriesGroups[C] }, O = null;
-        s.isHorizontal ? (O = s.drawStackedBarPaths(D(D({}, Q), {}, { zeroW: y, barHeight: z, yDivision: b })), Y = s.series[p][N] / s.invertedYRatio) : (O = s.drawStackedColumnPaths(D(D({}, Q), {}, { xDivision: x, barWidth: Y, zeroH: m })), z = s.series[p][N] / s.yRatio[P]);
+      for (var H = 0; H < r.globals.dataPoints; H++) {
+        var U = s.barHelpers.getStrokeWidth(p, H, w), Q = { indexes: { i: p, j: H, realIndex: w, translationsIndex: P, bc: f }, strokeWidth: U, x: h, y: c, elSeries: T, columnGroupIndex: k, seriesGroup: r.globals.seriesGroups[C] }, O = null;
+        s.isHorizontal ? (O = s.drawStackedBarPaths(D(D({}, Q), {}, { zeroW: y, barHeight: z, yDivision: b })), Y = s.series[p][H] / s.invertedYRatio) : (O = s.drawStackedColumnPaths(D(D({}, Q), {}, { xDivision: x, barWidth: Y, zeroH: m })), z = s.series[p][H] / s.yRatio[P]);
         var _ = s.barHelpers.drawGoalLine({ barXPosition: O.barXPosition, barYPosition: O.barYPosition, goalX: O.goalX, goalY: O.goalY, barHeight: z, barWidth: Y });
         _ && R.add(_), c = O.y, h = O.x, A.push(h), S.push(c);
-        var Z = s.barHelpers.getPathFillColor(i, p, N, w), ee = "", W = r.globals.isBarHorizontal ? "apexcharts-flip-x" : "apexcharts-flip-y";
-        (s.barHelpers.arrBorderRadius[w][N] === "bottom" && r.globals.series[w][N] > 0 || s.barHelpers.arrBorderRadius[w][N] === "top" && r.globals.series[w][N] < 0) && (ee = W), T = s.renderSeries(D(D({ realIndex: w, pathFill: Z.color }, Z.useRangeColor ? { lineFill: Z.color } : {}), {}, { j: N, i: p, columnGroupIndex: k, pathFrom: O.pathFrom, pathTo: O.pathTo, strokeWidth: U, elSeries: T, x: h, y: c, series: i, barHeight: z, barWidth: Y, elDataLabelsWrap: E, elGoalsMarkers: R, type: "bar", visibleSeries: k, classes: ee }));
+        var Z = s.barHelpers.getPathFillColor(i, p, H, w), ee = "", W = r.globals.isBarHorizontal ? "apexcharts-flip-x" : "apexcharts-flip-y";
+        (s.barHelpers.arrBorderRadius[w][H] === "bottom" && r.globals.series[w][H] > 0 || s.barHelpers.arrBorderRadius[w][H] === "top" && r.globals.series[w][H] < 0) && (ee = W), T = s.renderSeries(D(D({ realIndex: w, pathFill: Z.color }, Z.useRangeColor ? { lineFill: Z.color } : {}), {}, { j: H, i: p, columnGroupIndex: k, pathFrom: O.pathFrom, pathTo: O.pathTo, strokeWidth: U, elSeries: T, x: h, y: c, series: i, barHeight: z, barWidth: Y, elDataLabelsWrap: I, elGoalsMarkers: R, type: "bar", visibleSeries: k, classes: ee }));
       }
       r.globals.seriesXvalues[w] = A, r.globals.seriesYvalues[w] = S, s.groupCtx.prevY.push(s.groupCtx.yArrj), s.groupCtx.prevYF.push(s.groupCtx.yArrjF), s.groupCtx.prevYVal.push(s.groupCtx.yArrjVal), s.groupCtx.prevX.push(s.groupCtx.xArrj), s.groupCtx.prevXF.push(s.groupCtx.xArrjF), s.groupCtx.prevXVal.push(s.groupCtx.xArrjVal), l.add(T);
     }, u = 0, g = 0; u < i.length; u++, g++) d(u, g);
@@ -9114,21 +9114,21 @@ var Re = (function() {
     for (var w, v = s + c * l, C = 0, k = 0; k < this.groupCtx.prevYF.length; k++) C += isNaN(this.groupCtx.prevYF[k][f]) ? 0 : this.groupCtx.prevYF[k][f];
     var A = p;
     if (d && (A = d.indexOf(g.globals.seriesNames[b])), A > 0 && !g.globals.isXNumeric || A > 0 && g.globals.isXNumeric && g.globals.seriesX[b - 1][f] === g.globals.seriesX[b][f]) {
-      var S, P, T, E = Math.min(this.yRatio.length + 1, b + 1);
-      if (this.groupCtx.prevY[A - 1] !== void 0 && this.groupCtx.prevY[A - 1].length) for (var R = 1; R < E; R++) {
+      var S, P, T, I = Math.min(this.yRatio.length + 1, b + 1);
+      if (this.groupCtx.prevY[A - 1] !== void 0 && this.groupCtx.prevY[A - 1].length) for (var R = 1; R < I; R++) {
         var z;
         if (!isNaN((z = this.groupCtx.prevY[A - R]) === null || z === void 0 ? void 0 : z[f])) {
           T = this.groupCtx.prevY[A - R][f];
           break;
         }
       }
-      for (var Y = 1; Y < E; Y++) {
-        var H, N;
-        if (((H = this.groupCtx.prevYVal[A - Y]) === null || H === void 0 ? void 0 : H[f]) < 0) {
+      for (var Y = 1; Y < I; Y++) {
+        var N, H;
+        if (((N = this.groupCtx.prevYVal[A - Y]) === null || N === void 0 ? void 0 : N[f]) < 0) {
           P = this.series[p][f] >= 0 ? T - C + 2 * (this.isReversed ? C : 0) : T;
           break;
         }
-        if (((N = this.groupCtx.prevYVal[A - Y]) === null || N === void 0 ? void 0 : N[f]) >= 0) {
+        if (((H = this.groupCtx.prevYVal[A - Y]) === null || H === void 0 ? void 0 : H[f]) >= 0) {
           P = this.series[p][f] >= 0 ? T : T + C - 2 * (this.isReversed ? C : 0);
           break;
         }
@@ -9160,19 +9160,19 @@ var Re = (function() {
       r.isBoxPlot = o.config.chart.type === "boxPlot" || o.config.series[f].type === "boxPlot";
       var x, b, m, y, w = void 0, v = void 0, C = [], k = [], A = o.globals.comboCharts ? s[f] : f, S = r.barHelpers.getGroupIndex(A).columnGroupIndex, P = l.group({ class: "apexcharts-series", seriesName: L.escapeString(o.globals.seriesNames[A]), rel: f + 1, "data:realIndex": A });
       r.ctx.series.addCollapsedClassToSeries(P, A), i[f].length > 0 && (r.visibleI = r.visibleI + 1);
-      var T, E, R = 0;
+      var T, I, R = 0;
       r.yRatio.length > 1 && (r.yaxisIndex = o.globals.seriesYAxisReverseMap[A][0], R = A);
       var z = r.barHelpers.initialPositions(A);
-      v = z.y, T = z.barHeight, b = z.yDivision, y = z.zeroW, w = z.x, E = z.barWidth, x = z.xDivision, m = z.zeroH, k.push(w + E / 2);
-      for (var Y = l.group({ class: "apexcharts-datalabels", "data:realIndex": A }), H = l.group({ class: "apexcharts-bar-goals-markers" }), N = function(Q) {
+      v = z.y, T = z.barHeight, b = z.yDivision, y = z.zeroW, w = z.x, I = z.barWidth, x = z.xDivision, m = z.zeroH, k.push(w + I / 2);
+      for (var Y = l.group({ class: "apexcharts-datalabels", "data:realIndex": A }), N = l.group({ class: "apexcharts-bar-goals-markers" }), H = function(Q) {
         var O = r.barHelpers.getStrokeWidth(f, Q, A), _ = null, Z = { indexes: { i: f, j: Q, realIndex: A, translationsIndex: R }, x: w, y: v, strokeWidth: O, elSeries: P };
-        _ = r.isHorizontal ? r.drawHorizontalBoxPaths(D(D({}, Z), {}, { yDivision: b, barHeight: T, zeroW: y })) : r.drawVerticalBoxPaths(D(D({}, Z), {}, { xDivision: x, barWidth: E, zeroH: m })), v = _.y, w = _.x;
-        var ee = r.barHelpers.drawGoalLine({ barXPosition: _.barXPosition, barYPosition: _.barYPosition, goalX: _.goalX, goalY: _.goalY, barHeight: T, barWidth: E });
-        ee && H.add(ee), Q > 0 && k.push(w + E / 2), C.push(v), _.pathTo.forEach((function(W, se) {
+        _ = r.isHorizontal ? r.drawHorizontalBoxPaths(D(D({}, Z), {}, { yDivision: b, barHeight: T, zeroW: y })) : r.drawVerticalBoxPaths(D(D({}, Z), {}, { xDivision: x, barWidth: I, zeroH: m })), v = _.y, w = _.x;
+        var ee = r.barHelpers.drawGoalLine({ barXPosition: _.barXPosition, barYPosition: _.barYPosition, goalX: _.goalX, goalY: _.goalY, barHeight: T, barWidth: I });
+        ee && N.add(ee), Q > 0 && k.push(w + I / 2), C.push(v), _.pathTo.forEach((function(W, se) {
           var B = !r.isBoxPlot && r.candlestickOptions.wick.useFillColor ? _.color[se] : o.globals.stroke.colors[f], G = c.fillPath({ seriesNumber: A, dataPointIndex: Q, color: _.color[se], value: i[f][Q] });
-          r.renderSeries({ realIndex: A, pathFill: G, lineFill: B, j: Q, i: f, pathFrom: _.pathFrom, pathTo: W, strokeWidth: O, elSeries: P, x: w, y: v, series: i, columnGroupIndex: S, barHeight: T, barWidth: E, elDataLabelsWrap: Y, elGoalsMarkers: H, visibleSeries: r.visibleI, type: o.config.chart.type });
+          r.renderSeries({ realIndex: A, pathFill: G, lineFill: B, j: Q, i: f, pathFrom: _.pathFrom, pathTo: W, strokeWidth: O, elSeries: P, x: w, y: v, series: i, columnGroupIndex: S, barHeight: T, barWidth: I, elDataLabelsWrap: Y, elGoalsMarkers: N, visibleSeries: r.visibleI, type: o.config.chart.type });
         }));
-      }, U = 0; U < o.globals.dataPoints; U++) N(U);
+      }, U = 0; U < o.globals.dataPoints; U++) H(U);
       o.globals.seriesXvalues[A] = k, o.globals.seriesYvalues[A] = C, u.add(P);
     }, p = 0; p < i.length; p++) g(p);
     return u;
@@ -9185,14 +9185,14 @@ var Re = (function() {
     this.isBoxPlot && (A = [b(f.lower), b(f.upper)]);
     var S = Math.min(v.o, v.c), P = Math.max(v.o, v.c), T = v.m;
     c.globals.isXNumeric && (s = (c.globals.seriesX[x][g] - c.globals.minX) / this.xRatio - o / 2);
-    var E = s + o * this.visibleI;
+    var I = s + o * this.visibleI;
     this.series[u][g] === void 0 || this.series[u][g] === null ? (S = l, P = l) : (S = l - S / w, P = l - P / w, C = l - v.h / w, k = l - v.l / w, T = l - v.m / w);
-    var R = d.move(E, l), z = d.move(E + o / 2, S);
+    var R = d.move(I, l), z = d.move(I + o / 2, S);
     if (c.globals.previousPaths.length > 0 && (z = this.getPreviousPath(x, g, !0)), this.isOHLC) {
-      var Y = E + o / 2, H = l - v.o / w, N = l - v.c / w;
-      R = [d.move(Y, C) + d.line(Y, k) + d.move(Y, H) + d.line(E, H) + d.move(Y, N) + d.line(E + o, N)];
-    } else R = this.isBoxPlot ? [d.move(E, S) + d.line(E + o / 2, S) + d.line(E + o / 2, C) + d.line(E + o / 4, C) + d.line(E + o - o / 4, C) + d.line(E + o / 2, C) + d.line(E + o / 2, S) + d.line(E + o, S) + d.line(E + o, T) + d.line(E, T) + d.line(E, S + h / 2), d.move(E, T) + d.line(E + o, T) + d.line(E + o, P) + d.line(E + o / 2, P) + d.line(E + o / 2, k) + d.line(E + o - o / 4, k) + d.line(E + o / 4, k) + d.line(E + o / 2, k) + d.line(E + o / 2, P) + d.line(E, P) + d.line(E, T) + "z"] : [d.move(E, P) + d.line(E + o / 2, P) + d.line(E + o / 2, C) + d.line(E + o / 2, P) + d.line(E + o, P) + d.line(E + o, S) + d.line(E + o / 2, S) + d.line(E + o / 2, k) + d.line(E + o / 2, S) + d.line(E, S) + d.line(E, P - h / 2)];
-    return z += d.move(E, S), c.globals.isXNumeric || (s += r), { pathTo: R, pathFrom: z, x: s, y: P, goalY: this.barHelpers.getGoalValues("y", null, l, u, g, a.translationsIndex), barXPosition: E, color: A };
+      var Y = I + o / 2, N = l - v.o / w, H = l - v.c / w;
+      R = [d.move(Y, C) + d.line(Y, k) + d.move(Y, N) + d.line(I, N) + d.move(Y, H) + d.line(I + o, H)];
+    } else R = this.isBoxPlot ? [d.move(I, S) + d.line(I + o / 2, S) + d.line(I + o / 2, C) + d.line(I + o / 4, C) + d.line(I + o - o / 4, C) + d.line(I + o / 2, C) + d.line(I + o / 2, S) + d.line(I + o, S) + d.line(I + o, T) + d.line(I, T) + d.line(I, S + h / 2), d.move(I, T) + d.line(I + o, T) + d.line(I + o, P) + d.line(I + o / 2, P) + d.line(I + o / 2, k) + d.line(I + o - o / 4, k) + d.line(I + o / 4, k) + d.line(I + o / 2, k) + d.line(I + o / 2, P) + d.line(I, P) + d.line(I, T) + "z"] : [d.move(I, P) + d.line(I + o / 2, P) + d.line(I + o / 2, C) + d.line(I + o / 2, P) + d.line(I + o, P) + d.line(I + o, S) + d.line(I + o / 2, S) + d.line(I + o / 2, k) + d.line(I + o / 2, S) + d.line(I, S) + d.line(I, P - h / 2)];
+    return z += d.move(I, S), c.globals.isXNumeric || (s += r), { pathTo: R, pathFrom: z, x: s, y: P, goalY: this.barHelpers.getGoalValues("y", null, l, u, g, a.translationsIndex), barXPosition: I, color: A };
   } }, { key: "drawHorizontalBoxPaths", value: function(i) {
     var a = i.indexes;
     i.x;
@@ -9370,8 +9370,8 @@ var Re = (function() {
           A !== void 0 && (k = A(i.globals.seriesPercent[u][0], { seriesIndex: u, w: i }));
           var S = i.globals.dataLabels.style.colors[u], P = s.group({ class: "apexcharts-datalabels" }), T = s.drawText({ x: v, y: C, text: k, textAnchor: "middle", fontSize: i.config.dataLabels.style.fontSize, fontFamily: i.config.dataLabels.style.fontFamily, fontWeight: i.config.dataLabels.style.fontWeight, foreColor: S });
           if (P.add(T), i.config.dataLabels.dropShadow.enabled) {
-            var E = i.config.dataLabels.dropShadow;
-            a.dropShadow(T, E);
+            var I = i.config.dataLabels.dropShadow;
+            a.dropShadow(T, I);
           }
           T.node.classList.add("apexcharts-pie-label"), i.config.chart.animations.animate && i.globals.resized === !1 && (T.node.classList.add("apexcharts-pie-label-delay"), T.node.style.animationDelay = i.config.chart.animations.speed / 940 + "s"), this.sliceLabels.push(P);
         }
@@ -9499,16 +9499,16 @@ var Re = (function() {
         y.add(A);
         var S = a.fillPath({ seriesNumber: b }), P = t.graphics.renderPaths(D(D({}, v), {}, { pathFrom: C === null ? w.areaPathsFrom[k] : C, pathTo: w.areaPathsTo[k], strokeWidth: 0, fill: S, drawShadow: !1 }));
         if (i.config.chart.dropShadow.enabled) {
-          var T = new Re(t.ctx), E = i.config.chart.dropShadow;
-          T.dropShadow(P, Object.assign({}, E, { noUserSpaceOnUse: !0 }), b);
+          var T = new Re(t.ctx), I = i.config.chart.dropShadow;
+          T.dropShadow(P, Object.assign({}, I, { noUserSpaceOnUse: !0 }), b);
         }
         y.add(P);
       }
       x.forEach((function(R, z) {
-        var Y = new Tt(t.ctx).getMarkerConfig({ cssClass: "apexcharts-marker", seriesIndex: b, dataPointIndex: z }), H = t.graphics.drawMarker(u[z].x, u[z].y, Y);
-        H.attr("rel", z), H.attr("j", z), H.attr("index", b), H.node.setAttribute("default-marker-size", Y.pSize);
-        var N = t.graphics.group({ class: "apexcharts-series-markers" });
-        N && N.add(H), g.add(N), y.add(g);
+        var Y = new Tt(t.ctx).getMarkerConfig({ cssClass: "apexcharts-marker", seriesIndex: b, dataPointIndex: z }), N = t.graphics.drawMarker(u[z].x, u[z].y, Y);
+        N.attr("rel", z), N.attr("j", z), N.attr("index", b), N.node.setAttribute("default-marker-size", Y.pSize);
+        var H = t.graphics.group({ class: "apexcharts-series-markers" });
+        H && H.add(N), g.add(H), y.add(g);
         var U = i.config.dataLabels;
         if (U.enabled) {
           var Q = U.formatter(i.globals.series[b][z], { seriesIndex: b, dataPointIndex: z, w: i });
@@ -9655,17 +9655,17 @@ var Re = (function() {
       l.add(w), w.attr({ rel: y + 1, "data:realIndex": y }), this.ctx.series.addCollapsedClassToSeries(w, y), i.size = i.size - h - this.margin;
       var v = r.fillPath({ seriesNumber: y, size: i.size, value: i.series[y] }), C = this.startAngle, k = void 0, A = L.negToZero(i.series[y] > 100 ? 100 : i.series[y]) / 100, S = Math.round(this.totalAngle * A) + this.startAngle, P = void 0;
       a.globals.dataChanged && (k = this.startAngle, P = Math.round(this.totalAngle * L.negToZero(a.globals.previousPaths[y]) / 100) + k), Math.abs(S) + Math.abs(C) > 360 && (S -= 0.01), Math.abs(P) + Math.abs(k) > 360 && (P -= 0.01);
-      var T = S - C, E = Array.isArray(a.config.stroke.dashArray) ? a.config.stroke.dashArray[y] : a.config.stroke.dashArray, R = s.drawPath({ d: "", stroke: v, strokeWidth: h, fill: "none", fillOpacity: a.config.fill.opacity, classes: "apexcharts-radialbar-area apexcharts-radialbar-slice-" + y, strokeDashArray: E });
+      var T = S - C, I = Array.isArray(a.config.stroke.dashArray) ? a.config.stroke.dashArray[y] : a.config.stroke.dashArray, R = s.drawPath({ d: "", stroke: v, strokeWidth: h, fill: "none", fillOpacity: a.config.fill.opacity, classes: "apexcharts-radialbar-area apexcharts-radialbar-slice-" + y, strokeDashArray: I });
       if (X.setAttrs(R.node, { "data:angle": T, "data:value": i.series[y] }), a.config.chart.dropShadow.enabled) {
         var z = a.config.chart.dropShadow;
         o.dropShadow(R, z, y);
       }
       if (o.setSelectionFilter(R, 0, y), this.addListeners(R, this.radialDataLabels), w.add(R), R.attr({ index: 0, j: y }), this.barLabels.enabled) {
-        var Y = L.polarToCartesian(i.centerX, i.centerY, i.size, C), H = this.barLabels.formatter(a.globals.seriesNames[y], { seriesIndex: y, w: a }), N = ["apexcharts-radialbar-label"];
-        this.barLabels.onClick || N.push("apexcharts-no-click");
+        var Y = L.polarToCartesian(i.centerX, i.centerY, i.size, C), N = this.barLabels.formatter(a.globals.seriesNames[y], { seriesIndex: y, w: a }), H = ["apexcharts-radialbar-label"];
+        this.barLabels.onClick || H.push("apexcharts-no-click");
         var U = this.barLabels.useSeriesColors ? a.globals.colors[y] : a.config.chart.foreColor;
         U || (U = a.config.chart.foreColor);
-        var Q = Y.x + this.barLabels.offsetX, O = Y.y + this.barLabels.offsetY, _ = s.drawText({ x: Q, y: O, text: H, textAnchor: "end", dominantBaseline: "middle", fontFamily: this.barLabels.fontFamily, fontWeight: this.barLabels.fontWeight, fontSize: this.barLabels.fontSize, foreColor: U, cssClass: N.join(" ") });
+        var Q = Y.x + this.barLabels.offsetX, O = Y.y + this.barLabels.offsetY, _ = s.drawText({ x: Q, y: O, text: N, textAnchor: "end", dominantBaseline: "middle", fontFamily: this.barLabels.fontFamily, fontWeight: this.barLabels.fontWeight, fontSize: this.barLabels.fontSize, foreColor: U, cssClass: H.join(" ") });
         _.on("click", this.onBarLabelClick), _.attr({ rel: y + 1 }), C !== 0 && _.attr({ "transform-origin": "".concat(Q, " ").concat(O), transform: "rotate(".concat(C, " 0 0)") }), w.add(_);
       }
       var Z = 0;
@@ -9717,29 +9717,29 @@ var Re = (function() {
       var v = this.barHelpers.initialPositions(f);
       p = v.y, u = v.zeroW, g = v.x, y = v.barWidth, m = v.barHeight, h = v.xDivision, c = v.yDivision, d = v.zeroH;
       for (var C = r.group({ class: "apexcharts-datalabels", "data:realIndex": f }), k = r.group({ class: "apexcharts-rangebar-goals-markers" }), A = 0; A < s.globals.dataPoints; A++) {
-        var S = this.barHelpers.getStrokeWidth(l, A, f), P = this.seriesRangeStart[l][A], T = this.seriesRangeEnd[l][A], E = null, R = null, z = null, Y = { x: g, y: p, strokeWidth: S, elSeries: b }, H = this.seriesLen;
-        if (s.config.plotOptions.bar.rangeBarGroupRows && (H = 1), s.config.series[l].data[A] === void 0) break;
+        var S = this.barHelpers.getStrokeWidth(l, A, f), P = this.seriesRangeStart[l][A], T = this.seriesRangeEnd[l][A], I = null, R = null, z = null, Y = { x: g, y: p, strokeWidth: S, elSeries: b }, N = this.seriesLen;
+        if (s.config.plotOptions.bar.rangeBarGroupRows && (N = 1), s.config.series[l].data[A] === void 0) break;
         if (this.isHorizontal) {
           z = p + m * this.visibleI;
-          var N = (c - m * H) / 2;
+          var H = (c - m * N) / 2;
           if (s.config.series[l].data[A].x) {
-            var U = this.detectOverlappingBars({ i: l, j: A, barYPosition: z, srty: N, barHeight: m, yDivision: c, initPositions: v });
+            var U = this.detectOverlappingBars({ i: l, j: A, barYPosition: z, srty: H, barHeight: m, yDivision: c, initPositions: v });
             m = U.barHeight, z = U.barYPosition;
           }
-          y = (E = this.drawRangeBarPaths(D({ indexes: { i: l, j: A, realIndex: f }, barHeight: m, barYPosition: z, zeroW: u, yDivision: c, y1: P, y2: T }, Y))).barWidth;
+          y = (I = this.drawRangeBarPaths(D({ indexes: { i: l, j: A, realIndex: f }, barHeight: m, barYPosition: z, zeroW: u, yDivision: c, y1: P, y2: T }, Y))).barWidth;
         } else {
           s.globals.isXNumeric && (g = (s.globals.seriesX[l][A] - s.globals.minX) / this.xRatio - y / 2), R = g + y * this.visibleI;
-          var Q = (h - y * H) / 2;
+          var Q = (h - y * N) / 2;
           if (s.config.series[l].data[A].x) {
             var O = this.detectOverlappingBars({ i: l, j: A, barXPosition: R, srtx: Q, barWidth: y, xDivision: h, initPositions: v });
             y = O.barWidth, R = O.barXPosition;
           }
-          m = (E = this.drawRangeColumnPaths(D({ indexes: { i: l, j: A, realIndex: f, translationsIndex: w }, barWidth: y, barXPosition: R, zeroH: d, xDivision: h }, Y))).barHeight;
+          m = (I = this.drawRangeColumnPaths(D({ indexes: { i: l, j: A, realIndex: f, translationsIndex: w }, barWidth: y, barXPosition: R, zeroH: d, xDivision: h }, Y))).barHeight;
         }
-        var _ = this.barHelpers.drawGoalLine({ barXPosition: E.barXPosition, barYPosition: z, goalX: E.goalX, goalY: E.goalY, barHeight: m, barWidth: y });
-        _ && k.add(_), p = E.y, g = E.x;
+        var _ = this.barHelpers.drawGoalLine({ barXPosition: I.barXPosition, barYPosition: z, goalX: I.goalX, goalY: I.goalY, barHeight: m, barWidth: y });
+        _ && k.add(_), p = I.y, g = I.x;
         var Z = this.barHelpers.getPathFillColor(i, l, A, f);
-        this.renderSeries({ realIndex: f, pathFill: Z.color, lineFill: Z.useRangeColor ? Z.color : s.globals.stroke.colors[f], j: A, i: l, x: g, y: p, y1: P, y2: T, pathFrom: E.pathFrom, pathTo: E.pathTo, strokeWidth: S, elSeries: b, series: i, barHeight: m, barWidth: y, barXPosition: R, barYPosition: z, columnGroupIndex: x, elDataLabelsWrap: C, elGoalsMarkers: k, visibleSeries: this.visibleI, type: "rangebar" });
+        this.renderSeries({ realIndex: f, pathFill: Z.color, lineFill: Z.useRangeColor ? Z.color : s.globals.stroke.colors[f], j: A, i: l, x: g, y: p, y1: P, y2: T, pathFrom: I.pathFrom, pathTo: I.pathTo, strokeWidth: S, elSeries: b, series: i, barHeight: m, barWidth: y, barXPosition: R, barYPosition: z, columnGroupIndex: x, elDataLabelsWrap: C, elGoalsMarkers: k, visibleSeries: this.visibleI, type: "rangebar" });
       }
       o.add(b);
     }
@@ -9845,10 +9845,10 @@ var Yi = (function() {
       this.ctx.series.addCollapsedClassToSeries(this.elSeries, g), r.globals.isXNumeric && r.globals.seriesX.length > 0 && (m = (r.globals.seriesX[g][0] - r.globals.minX) / this.xRatio), b.push(m);
       var y, w = m, v = void 0, C = w, k = this.zeroY, A = this.zeroY;
       k = this.lineHelpers.determineFirstPrevY({ i: u, realIndex: g, series: e, prevY: k, lineYPosition: 0, translationsIndex: p }).prevY, r.config.stroke.curve === "monotoneCubic" && e[u][0] === null ? f.push(null) : f.push(k), y = k, l === "rangeArea" && (v = A = this.lineHelpers.determineFirstPrevY({ i: u, realIndex: g, series: a, prevY: A, lineYPosition: 0, translationsIndex: p }).prevY, x.push(f[0] !== null ? A : null));
-      var S = this._calculatePathsFrom({ type: l, series: e, i: u, realIndex: g, translationsIndex: p, prevX: C, prevY: k, prevY2: A }), P = [f[0]], T = [x[0]], E = { type: l, series: e, realIndex: g, translationsIndex: p, i: u, x: m, y: 1, pX: w, pY: y, pathsFrom: S, linePaths: [], areaPaths: [], seriesIndex: i, lineYPosition: 0, xArrj: b, yArrj: f, y2Arrj: x, seriesRangeEnd: a }, R = this._iterateOverDataPoints(D(D({}, E), {}, { iterations: l === "rangeArea" ? e[u].length - 1 : void 0, isRangeStart: !0 }));
+      var S = this._calculatePathsFrom({ type: l, series: e, i: u, realIndex: g, translationsIndex: p, prevX: C, prevY: k, prevY2: A }), P = [f[0]], T = [x[0]], I = { type: l, series: e, realIndex: g, translationsIndex: p, i: u, x: m, y: 1, pX: w, pY: y, pathsFrom: S, linePaths: [], areaPaths: [], seriesIndex: i, lineYPosition: 0, xArrj: b, yArrj: f, y2Arrj: x, seriesRangeEnd: a }, R = this._iterateOverDataPoints(D(D({}, I), {}, { iterations: l === "rangeArea" ? e[u].length - 1 : void 0, isRangeStart: !0 }));
       if (l === "rangeArea") {
-        for (var z = this._calculatePathsFrom({ series: a, i: u, realIndex: g, prevX: C, prevY: A }), Y = this._iterateOverDataPoints(D(D({}, E), {}, { series: a, xArrj: [m], yArrj: P, y2Arrj: T, pY: v, areaPaths: R.areaPaths, pathsFrom: z, iterations: a[u].length - 1, isRangeStart: !1 })), H = R.linePaths.length / 2, N = 0; N < H; N++) R.linePaths[N] = Y.linePaths[N + H] + R.linePaths[N];
-        R.linePaths.splice(H), R.pathFromLine = Y.pathFromLine + R.pathFromLine;
+        for (var z = this._calculatePathsFrom({ series: a, i: u, realIndex: g, prevX: C, prevY: A }), Y = this._iterateOverDataPoints(D(D({}, I), {}, { series: a, xArrj: [m], yArrj: P, y2Arrj: T, pY: v, areaPaths: R.areaPaths, pathsFrom: z, iterations: a[u].length - 1, isRangeStart: !1 })), N = R.linePaths.length / 2, H = 0; H < N; H++) R.linePaths[H] = Y.linePaths[H + N] + R.linePaths[H];
+        R.linePaths.splice(N), R.pathFromLine = Y.pathFromLine + R.pathFromLine;
       } else R.pathFromArea += "z";
       this._handlePaths({ type: l, realIndex: g, i: u, paths: R }), this.elSeries.add(this.elPointsMain), this.elSeries.add(this.elDataLabelsWrap), d.push(this.elSeries);
     }
@@ -9916,7 +9916,7 @@ var Yi = (function() {
       }
     }
   } }, { key: "_iterateOverDataPoints", value: function(e) {
-    var t, i, a = this, s = e.type, r = e.series, o = e.iterations, l = e.realIndex, h = e.translationsIndex, c = e.i, d = e.x, u = e.y, g = e.pX, p = e.pY, f = e.pathsFrom, x = e.linePaths, b = e.areaPaths, m = e.seriesIndex, y = e.lineYPosition, w = e.xArrj, v = e.yArrj, C = e.y2Arrj, k = e.isRangeStart, A = e.seriesRangeEnd, S = this.w, P = new X(this.ctx), T = this.yRatio, E = f.prevY, R = f.linePath, z = f.areaPath, Y = f.pathFromLine, H = f.pathFromArea, N = L.isNumber(S.globals.minYArr[l]) ? S.globals.minYArr[l] : S.globals.minY;
+    var t, i, a = this, s = e.type, r = e.series, o = e.iterations, l = e.realIndex, h = e.translationsIndex, c = e.i, d = e.x, u = e.y, g = e.pX, p = e.pY, f = e.pathsFrom, x = e.linePaths, b = e.areaPaths, m = e.seriesIndex, y = e.lineYPosition, w = e.xArrj, v = e.yArrj, C = e.y2Arrj, k = e.isRangeStart, A = e.seriesRangeEnd, S = this.w, P = new X(this.ctx), T = this.yRatio, I = f.prevY, R = f.linePath, z = f.areaPath, Y = f.pathFromLine, N = f.pathFromArea, H = L.isNumber(S.globals.minYArr[l]) ? S.globals.minYArr[l] : S.globals.minY;
     o || (o = S.globals.dataPoints > 1 ? S.globals.dataPoints - 1 : S.globals.dataPoints);
     var U = function(ae, te) {
       return te - ae / T[h] + 2 * (a.isReversed ? ae / T[h] : 0);
@@ -9934,11 +9934,11 @@ var Yi = (function() {
           te--;
         }
         return 0;
-      })(c - 1)][W + 1] : y = this.zeroY : y = this.zeroY, se ? u = U(N, y) : (u = U(r[c][W + 1], y), s === "rangeArea" && (Q = U(A[c][W + 1], y))), w.push(r[c][W + 1] === null ? null : d), !se || S.config.stroke.curve !== "smooth" && S.config.stroke.curve !== "monotoneCubic" ? (v.push(u), C.push(Q)) : (v.push(null), C.push(null));
-      var G = this.lineHelpers.calculatePoints({ series: r, x: d, y: u, realIndex: l, i: c, j: W, prevY: E }), J = this._createPaths({ type: s, series: r, i: c, realIndex: l, j: W, x: d, y: u, y2: Q, xArrj: w, yArrj: v, y2Arrj: C, pX: g, pY: p, pathState: ee, segmentStartX: Z, linePath: R, areaPath: z, linePaths: x, areaPaths: b, curve: _, isRangeStart: k });
-      b = J.areaPaths, x = J.linePaths, g = J.pX, p = J.pY, ee = J.pathState, Z = J.segmentStartX, z = J.areaPath, R = J.linePath, !this.appendPathFrom || S.globals.hasNullValues || _ === "monotoneCubic" && s === "rangeArea" || (Y += P.line(d, this.areaBottomY), H += P.line(d, this.areaBottomY)), this.handleNullDataPoints(r, G, c, W, l), this._handleMarkersAndLabels({ type: s, pointsPos: G, i: c, j: W, realIndex: l, isRangeStart: k });
+      })(c - 1)][W + 1] : y = this.zeroY : y = this.zeroY, se ? u = U(H, y) : (u = U(r[c][W + 1], y), s === "rangeArea" && (Q = U(A[c][W + 1], y))), w.push(r[c][W + 1] === null ? null : d), !se || S.config.stroke.curve !== "smooth" && S.config.stroke.curve !== "monotoneCubic" ? (v.push(u), C.push(Q)) : (v.push(null), C.push(null));
+      var G = this.lineHelpers.calculatePoints({ series: r, x: d, y: u, realIndex: l, i: c, j: W, prevY: I }), J = this._createPaths({ type: s, series: r, i: c, realIndex: l, j: W, x: d, y: u, y2: Q, xArrj: w, yArrj: v, y2Arrj: C, pX: g, pY: p, pathState: ee, segmentStartX: Z, linePath: R, areaPath: z, linePaths: x, areaPaths: b, curve: _, isRangeStart: k });
+      b = J.areaPaths, x = J.linePaths, g = J.pX, p = J.pY, ee = J.pathState, Z = J.segmentStartX, z = J.areaPath, R = J.linePath, !this.appendPathFrom || S.globals.hasNullValues || _ === "monotoneCubic" && s === "rangeArea" || (Y += P.line(d, this.areaBottomY), N += P.line(d, this.areaBottomY)), this.handleNullDataPoints(r, G, c, W, l), this._handleMarkersAndLabels({ type: s, pointsPos: G, i: c, j: W, realIndex: l, isRangeStart: k });
     }
-    return { yArrj: v, xArrj: w, pathFromArea: H, areaPaths: b, pathFromLine: Y, linePaths: x, linePath: R, areaPath: z };
+    return { yArrj: v, xArrj: w, pathFromArea: N, areaPaths: b, pathFromLine: Y, linePaths: x, linePath: R, areaPath: z };
   } }, { key: "_handleMarkersAndLabels", value: function(e) {
     var t = e.type, i = e.pointsPos, a = e.isRangeStart, s = e.i, r = e.j, o = e.realIndex, l = this.w, h = new At(this.ctx);
     if (this.pointsChart) this.scatter.draw(this.elSeries, r, { realIndex: o, pointsPos: i, zRatio: this.zRatio, elParent: this.elPointsMain });
@@ -9963,13 +9963,13 @@ var Yi = (function() {
           case 1:
             if (!(S ? h.length === i[a].length : r === i[a].length - 2)) break;
           case 2:
-            var E = C ? h : h.slice().reverse(), R = C ? T : T.slice().reverse(), z = (s = R, E.map((function(B, G) {
+            var I = C ? h : h.slice().reverse(), R = C ? T : T.slice().reverse(), z = (s = R, I.map((function(B, G) {
               return [B, s[G]];
             })).filter((function(B) {
               return B[1] !== null;
-            }))), Y = z.length > 1 ? ul(z) : z, H = [];
-            S && (P ? w = z : H = w.reverse());
-            var N = 0, U = 0;
+            }))), Y = z.length > 1 ? ul(z) : z, N = [];
+            S && (P ? w = z : N = w.reverse());
+            var H = 0, U = 0;
             if ((function(B, G) {
               for (var J = (function(V) {
                 var ye = [], ze = 0;
@@ -9979,7 +9979,7 @@ var Yi = (function() {
               })(B), ae = [], te = 0, ge = 0; te < J.length; ge += J[te++]) ae[te] = gl(G, ge, ge + J[te]);
               return ae;
             })(R, Y).forEach((function(B) {
-              N++;
+              H++;
               var G = (function(te) {
                 for (var ge = "", V = 0; V < te.length; V++) {
                   var ye = te[V], ze = ye.length;
@@ -9987,10 +9987,10 @@ var Yi = (function() {
                 }
                 return ge;
               })(B), J = U, ae = (U += B.length) - 1;
-              P ? b = k.move(z[J][0], z[J][1]) + G : S ? b = k.move(H[J][0], H[J][1]) + k.line(z[J][0], z[J][1]) + G + k.line(H[ae][0], H[ae][1]) : (b = k.move(z[J][0], z[J][1]) + G, m = b + k.line(z[ae][0], A) + k.line(z[J][0], A) + "z", w.push(m)), y.push(b);
-            })), S && N > 1 && !P) {
-              var Q = y.slice(N).reverse();
-              y.splice(N), Q.forEach((function(B) {
+              P ? b = k.move(z[J][0], z[J][1]) + G : S ? b = k.move(N[J][0], N[J][1]) + k.line(z[J][0], z[J][1]) + G + k.line(N[ae][0], N[ae][1]) : (b = k.move(z[J][0], z[J][1]) + G, m = b + k.line(z[ae][0], A) + k.line(z[J][0], A) + "z", w.push(m)), y.push(b);
+            })), S && H > 1 && !P) {
+              var Q = y.slice(H).reverse();
+              y.splice(H), Q.forEach((function(B) {
                 return y.push(B);
               }));
             }
@@ -10164,30 +10164,30 @@ var fl = (function() {
         new Re(t.ctx).dropShadow(r, d, h);
       }
       var u = a.group({ class: "apexcharts-data-labels" }), g = { xMin: 1 / 0, yMin: 1 / 0, xMax: -1 / 0, yMax: -1 / 0 };
-      l.forEach((function(Y, H) {
-        var N = Y[0], U = Y[1], Q = Y[2], O = Y[3];
-        g.xMin = Math.min(g.xMin, N), g.yMin = Math.min(g.yMin, U), g.xMax = Math.max(g.xMax, Q), g.yMax = Math.max(g.yMax, O);
-        var _ = t.helpers.getShadeColor(i.config.chart.type, h, H, t.negRange), Z = _.color, ee = s.fillPath({ color: Z, seriesNumber: h, dataPointIndex: H }), W = a.drawRect(N, U, Q - N, O - U, i.config.plotOptions.treemap.borderRadius, "#fff", 1, t.strokeWidth, i.config.plotOptions.treemap.useFillColorAsStroke ? Z : i.globals.stroke.colors[h]);
-        W.attr({ cx: N, cy: U, index: h, i: h, j: H, width: Q - N, height: O - U, fill: ee }), W.node.classList.add("apexcharts-treemap-rect"), t.helpers.addListeners(W);
-        var se = { x: N + (Q - N) / 2, y: U + (O - U) / 2, width: 0, height: 0 }, B = { x: N, y: U, width: Q - N, height: O - U };
+      l.forEach((function(Y, N) {
+        var H = Y[0], U = Y[1], Q = Y[2], O = Y[3];
+        g.xMin = Math.min(g.xMin, H), g.yMin = Math.min(g.yMin, U), g.xMax = Math.max(g.xMax, Q), g.yMax = Math.max(g.yMax, O);
+        var _ = t.helpers.getShadeColor(i.config.chart.type, h, N, t.negRange), Z = _.color, ee = s.fillPath({ color: Z, seriesNumber: h, dataPointIndex: N }), W = a.drawRect(H, U, Q - H, O - U, i.config.plotOptions.treemap.borderRadius, "#fff", 1, t.strokeWidth, i.config.plotOptions.treemap.useFillColorAsStroke ? Z : i.globals.stroke.colors[h]);
+        W.attr({ cx: H, cy: U, index: h, i: h, j: N, width: Q - H, height: O - U, fill: ee }), W.node.classList.add("apexcharts-treemap-rect"), t.helpers.addListeners(W);
+        var se = { x: H + (Q - H) / 2, y: U + (O - U) / 2, width: 0, height: 0 }, B = { x: H, y: U, width: Q - H, height: O - U };
         if (i.config.chart.animations.enabled && !i.globals.dataChanged) {
           var G = 1;
           i.globals.resized || (G = i.config.chart.animations.speed), t.animateTreemap(W, se, B, G);
         }
         if (i.globals.dataChanged) {
           var J = 1;
-          t.dynamicAnim.enabled && i.globals.shouldAnimate && (J = t.dynamicAnim.speed, i.globals.previousPaths[h] && i.globals.previousPaths[h][H] && i.globals.previousPaths[h][H].rect && (se = i.globals.previousPaths[h][H].rect), t.animateTreemap(W, se, B, J));
+          t.dynamicAnim.enabled && i.globals.shouldAnimate && (J = t.dynamicAnim.speed, i.globals.previousPaths[h] && i.globals.previousPaths[h][N] && i.globals.previousPaths[h][N].rect && (se = i.globals.previousPaths[h][N].rect), t.animateTreemap(W, se, B, J));
         }
-        var ae = t.getFontSize(Y), te = i.config.dataLabels.formatter(t.labels[h][H], { value: i.globals.series[h][H], seriesIndex: h, dataPointIndex: H, w: i });
-        i.config.plotOptions.treemap.dataLabels.format === "truncate" && (ae = parseInt(i.config.dataLabels.style.fontSize, 10), te = t.truncateLabels(te, ae, N, U, Q, O));
+        var ae = t.getFontSize(Y), te = i.config.dataLabels.formatter(t.labels[h][N], { value: i.globals.series[h][N], seriesIndex: h, dataPointIndex: N, w: i });
+        i.config.plotOptions.treemap.dataLabels.format === "truncate" && (ae = parseInt(i.config.dataLabels.style.fontSize, 10), te = t.truncateLabels(te, ae, H, U, Q, O));
         var ge = null;
-        i.globals.series[h][H] && (ge = t.helpers.calculateDataLabels({ text: te, x: (N + Q) / 2, y: (U + O) / 2 + t.strokeWidth / 2 + ae / 3, i: h, j: H, colorProps: _, fontSize: ae, series: e })), i.config.dataLabels.enabled && ge && t.rotateToFitLabel(ge, ae, te, N, U, Q, O), c.add(W), ge !== null && c.add(ge);
+        i.globals.series[h][N] && (ge = t.helpers.calculateDataLabels({ text: te, x: (H + Q) / 2, y: (U + O) / 2 + t.strokeWidth / 2 + ae / 3, i: h, j: N, colorProps: _, fontSize: ae, series: e })), i.config.dataLabels.enabled && ge && t.rotateToFitLabel(ge, ae, te, H, U, Q, O), c.add(W), ge !== null && c.add(ge);
       }));
       var p = i.config.plotOptions.treemap.seriesTitle;
       if (i.config.series.length > 1 && p && p.show) {
         var f = i.config.series[h].name || "";
         if (f && g.xMin < 1 / 0 && g.yMin < 1 / 0) {
-          var x = p.offsetX, b = p.offsetY, m = p.borderColor, y = p.borderWidth, w = p.borderRadius, v = p.style, C = v.color || i.config.chart.foreColor, k = { left: v.padding.left, right: v.padding.right, top: v.padding.top, bottom: v.padding.bottom }, A = a.getTextRects(f, v.fontSize, v.fontFamily), S = A.width + k.left + k.right, P = A.height + k.top + k.bottom, T = g.xMin + (x || 0), E = g.yMin + (b || 0), R = a.drawRect(T, E, S, P, w, v.background, 1, y, m), z = a.drawText({ x: T + k.left, y: E + k.top + 0.75 * A.height, text: f, fontSize: v.fontSize, fontFamily: v.fontFamily, fontWeight: v.fontWeight, foreColor: C, cssClass: v.cssClass || "" });
+          var x = p.offsetX, b = p.offsetY, m = p.borderColor, y = p.borderWidth, w = p.borderRadius, v = p.style, C = v.color || i.config.chart.foreColor, k = { left: v.padding.left, right: v.padding.right, top: v.padding.top, bottom: v.padding.bottom }, A = a.getTextRects(f, v.fontSize, v.fontFamily), S = A.width + k.left + k.right, P = A.height + k.top + k.bottom, T = g.xMin + (x || 0), I = g.yMin + (b || 0), R = a.drawRect(T, I, S, P, w, v.background, 1, y, m), z = a.drawText({ x: T + k.left, y: I + k.top + 0.75 * A.height, text: f, fontSize: v.fontSize, fontFamily: v.fontFamily, fontWeight: v.fontWeight, foreColor: C, cssClass: v.cssClass || "" });
           c.add(R), c.add(z);
         }
       }
@@ -10692,11 +10692,11 @@ var fl = (function() {
         break;
       case "A":
         r = (function(o, l) {
-          var h, c, d, u, g, p, f, x, b, m, y, w, v, C, k, A, S, P, T, E, R, z, Y, H, N, U, Q = Math.abs(l[1]), O = Math.abs(l[2]), _ = l[3] % 360, Z = l[4], ee = l[5], W = l[6], se = l[7], B = new fe(o), G = new fe(W, se), J = [];
+          var h, c, d, u, g, p, f, x, b, m, y, w, v, C, k, A, S, P, T, I, R, z, Y, N, H, U, Q = Math.abs(l[1]), O = Math.abs(l[2]), _ = l[3] % 360, Z = l[4], ee = l[5], W = l[6], se = l[7], B = new fe(o), G = new fe(W, se), J = [];
           if (Q === 0 || O === 0 || B.x === G.x && B.y === G.y) return [["C", B.x, B.y, G.x, G.y, G.x, G.y]];
-          for (h = new fe((B.x - G.x) / 2, (B.y - G.y) / 2).transform(new ie().rotate(_)), c = h.x * h.x / (Q * Q) + h.y * h.y / (O * O), c > 1 && (Q *= c = Math.sqrt(c), O *= c), d = new ie().rotate(_).scale(1 / Q, 1 / O).rotate(-_), B = B.transform(d), G = G.transform(d), u = [G.x - B.x, G.y - B.y], p = u[0] * u[0] + u[1] * u[1], g = Math.sqrt(p), u[0] /= g, u[1] /= g, f = p < 4 ? Math.sqrt(1 - p / 4) : 0, Z === ee && (f *= -1), x = new fe((G.x + B.x) / 2 + f * -u[1], (G.y + B.y) / 2 + f * u[0]), b = new fe(B.x - x.x, B.y - x.y), m = new fe(G.x - x.x, G.y - x.y), y = Math.acos(b.x / Math.sqrt(b.x * b.x + b.y * b.y)), b.y < 0 && (y *= -1), w = Math.acos(m.x / Math.sqrt(m.x * m.x + m.y * m.y)), m.y < 0 && (w *= -1), ee && y > w && (w += 2 * Math.PI), !ee && y < w && (w -= 2 * Math.PI), C = Math.ceil(2 * Math.abs(y - w) / Math.PI), A = [], S = y, v = (w - y) / C, k = 4 * Math.tan(v / 4) / 3, R = 0; R <= C; R++) T = Math.cos(S), P = Math.sin(S), E = new fe(x.x + T, x.y + P), A[R] = [new fe(E.x + k * P, E.y - k * T), E, new fe(E.x - k * P, E.y + k * T)], S += v;
+          for (h = new fe((B.x - G.x) / 2, (B.y - G.y) / 2).transform(new ie().rotate(_)), c = h.x * h.x / (Q * Q) + h.y * h.y / (O * O), c > 1 && (Q *= c = Math.sqrt(c), O *= c), d = new ie().rotate(_).scale(1 / Q, 1 / O).rotate(-_), B = B.transform(d), G = G.transform(d), u = [G.x - B.x, G.y - B.y], p = u[0] * u[0] + u[1] * u[1], g = Math.sqrt(p), u[0] /= g, u[1] /= g, f = p < 4 ? Math.sqrt(1 - p / 4) : 0, Z === ee && (f *= -1), x = new fe((G.x + B.x) / 2 + f * -u[1], (G.y + B.y) / 2 + f * u[0]), b = new fe(B.x - x.x, B.y - x.y), m = new fe(G.x - x.x, G.y - x.y), y = Math.acos(b.x / Math.sqrt(b.x * b.x + b.y * b.y)), b.y < 0 && (y *= -1), w = Math.acos(m.x / Math.sqrt(m.x * m.x + m.y * m.y)), m.y < 0 && (w *= -1), ee && y > w && (w += 2 * Math.PI), !ee && y < w && (w -= 2 * Math.PI), C = Math.ceil(2 * Math.abs(y - w) / Math.PI), A = [], S = y, v = (w - y) / C, k = 4 * Math.tan(v / 4) / 3, R = 0; R <= C; R++) T = Math.cos(S), P = Math.sin(S), I = new fe(x.x + T, x.y + P), A[R] = [new fe(I.x + k * P, I.y - k * T), I, new fe(I.x - k * P, I.y + k * T)], S += v;
           for (A[0][0] = A[0][1].clone(), A[A.length - 1][2] = A[A.length - 1][1].clone(), d = new ie().rotate(_).scale(Q, O).rotate(-_), R = 0, z = A.length; R < z; R++) A[R][0] = A[R][0].transform(d), A[R][1] = A[R][1].transform(d), A[R][2] = A[R][2].transform(d);
-          for (R = 1, z = A.length; R < z; R++) Y = (E = A[R - 1][2]).x, H = E.y, N = (E = A[R][0]).x, U = E.y, W = (E = A[R][1]).x, se = E.y, J.push(["C", Y, H, N, U, W, se]);
+          for (R = 1, z = A.length; R < z; R++) Y = (I = A[R - 1][2]).x, N = I.y, H = (I = A[R][0]).x, U = I.y, W = (I = A[R][1]).x, se = I.y, J.push(["C", Y, N, H, U, W, se]);
           return J;
         })(this.pos, s), s = r[0];
     }
@@ -12253,7 +12253,7 @@ function kl() {
         }
       }
     }
-    var v = l, C = h, k = o, A = r, S = e, P = c, T = i, E = p, R = g, z = t, Y = s, H = a, N = d, U = !1;
+    var v = l, C = h, k = o, A = r, S = e, P = c, T = i, I = p, R = g, z = t, Y = s, N = a, H = d, U = !1;
     function Q(V) {
       return U || (U = !0, console.warn("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 17+. Update your code to use ReactIs.isConcurrentMode() instead. It has the exact same API.")), O(V) || w(V) === l;
     }
@@ -12293,7 +12293,7 @@ function kl() {
     function ge(V) {
       return w(V) === d;
     }
-    be.AsyncMode = v, be.ConcurrentMode = C, be.ContextConsumer = k, be.ContextProvider = A, be.Element = S, be.ForwardRef = P, be.Fragment = T, be.Lazy = E, be.Memo = R, be.Portal = z, be.Profiler = Y, be.StrictMode = H, be.Suspense = N, be.isAsyncMode = Q, be.isConcurrentMode = O, be.isContextConsumer = _, be.isContextProvider = Z, be.isElement = ee, be.isForwardRef = W, be.isFragment = se, be.isLazy = B, be.isMemo = G, be.isPortal = J, be.isProfiler = ae, be.isStrictMode = te, be.isSuspense = ge, be.isValidElementType = y, be.typeOf = w;
+    be.AsyncMode = v, be.ConcurrentMode = C, be.ContextConsumer = k, be.ContextProvider = A, be.Element = S, be.ForwardRef = P, be.Fragment = T, be.Lazy = I, be.Memo = R, be.Portal = z, be.Profiler = Y, be.StrictMode = N, be.Suspense = H, be.isAsyncMode = Q, be.isConcurrentMode = O, be.isContextConsumer = _, be.isContextProvider = Z, be.isElement = ee, be.isForwardRef = W, be.isFragment = se, be.isLazy = B, be.isMemo = G, be.isPortal = J, be.isProfiler = ae, be.isStrictMode = te, be.isSuspense = ge, be.isValidElementType = y, be.typeOf = w;
   })()), be;
 }
 var vs;
@@ -12305,9 +12305,9 @@ object-assign
 (c) Sindre Sorhus
 @license MIT
 */
-var Hi, ys;
+var Ni, ys;
 function Al() {
-  if (ys) return Hi;
+  if (ys) return Ni;
   ys = 1;
   var n = Object.getOwnPropertySymbols, e = Object.prototype.hasOwnProperty, t = Object.prototype.propertyIsEnumerable;
   function i(s) {
@@ -12337,7 +12337,7 @@ function Al() {
       return !1;
     }
   }
-  return Hi = a() ? Object.assign : function(s, r) {
+  return Ni = a() ? Object.assign : function(s, r) {
     for (var o, l = i(s), h, c = 1; c < arguments.length; c++) {
       o = Object(arguments[c]);
       for (var d in o)
@@ -12349,14 +12349,14 @@ function Al() {
       }
     }
     return l;
-  }, Hi;
+  }, Ni;
 }
-var Ni, ws;
+var Hi, ws;
 function Pa() {
-  if (ws) return Ni;
+  if (ws) return Hi;
   ws = 1;
   var n = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
-  return Ni = n, Ni;
+  return Hi = n, Hi;
 }
 var Fi, ks;
 function Cr() {
@@ -12453,7 +12453,7 @@ function Sl() {
       objectOf: A,
       oneOf: k,
       oneOfType: S,
-      shape: E,
+      shape: I,
       exact: R
     };
     function p(O, _) {
@@ -12488,9 +12488,9 @@ function Sl() {
     }
     function b(O) {
       function _(Z, ee, W, se, B, G) {
-        var J = Z[ee], ae = H(J);
+        var J = Z[ee], ae = N(J);
         if (ae !== O) {
-          var te = N(J);
+          var te = H(J);
           return new f(
             "Invalid " + se + " `" + B + "` of type " + ("`" + te + "` supplied to `" + W + "`, expected ") + ("`" + O + "`."),
             { expectedType: O }
@@ -12509,7 +12509,7 @@ function Sl() {
           return new f("Property `" + B + "` of component `" + W + "` has invalid PropType notation inside arrayOf.");
         var G = Z[ee];
         if (!Array.isArray(G)) {
-          var J = H(G);
+          var J = N(G);
           return new f("Invalid " + se + " `" + B + "` of type " + ("`" + J + "` supplied to `" + W + "`, expected an array."));
         }
         for (var ae = 0; ae < G.length; ae++) {
@@ -12525,7 +12525,7 @@ function Sl() {
       function O(_, Z, ee, W, se) {
         var B = _[Z];
         if (!o(B)) {
-          var G = H(B);
+          var G = N(B);
           return new f("Invalid " + W + " `" + se + "` of type " + ("`" + G + "` supplied to `" + ee + "`, expected a single ReactElement."));
         }
         return null;
@@ -12536,7 +12536,7 @@ function Sl() {
       function O(_, Z, ee, W, se) {
         var B = _[Z];
         if (!n.isValidElementType(B)) {
-          var G = H(B);
+          var G = N(B);
           return new f("Invalid " + W + " `" + se + "` of type " + ("`" + G + "` supplied to `" + ee + "`, expected a single ReactElement type."));
         }
         return null;
@@ -12563,7 +12563,7 @@ function Sl() {
           if (p(G, O[J]))
             return null;
         var ae = JSON.stringify(O, function(ge, V) {
-          var ye = N(V);
+          var ye = H(V);
           return ye === "symbol" ? String(V) : V;
         });
         return new f("Invalid " + se + " `" + B + "` of value `" + String(G) + "` " + ("supplied to `" + W + "`, expected one of " + ae + "."));
@@ -12574,7 +12574,7 @@ function Sl() {
       function _(Z, ee, W, se, B) {
         if (typeof O != "function")
           return new f("Property `" + B + "` of component `" + W + "` has invalid PropType notation inside objectOf.");
-        var G = Z[ee], J = H(G);
+        var G = Z[ee], J = N(G);
         if (J !== "object")
           return new f("Invalid " + se + " `" + B + "` of type " + ("`" + J + "` supplied to `" + W + "`, expected an object."));
         for (var ae in G)
@@ -12620,15 +12620,15 @@ function Sl() {
         (O || "React class") + ": " + _ + " type `" + Z + "." + ee + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + W + "`."
       );
     }
-    function E(O) {
+    function I(O) {
       function _(Z, ee, W, se, B) {
-        var G = Z[ee], J = H(G);
+        var G = Z[ee], J = N(G);
         if (J !== "object")
           return new f("Invalid " + se + " `" + B + "` of type `" + J + "` " + ("supplied to `" + W + "`, expected `object`."));
         for (var ae in O) {
           var te = O[ae];
           if (typeof te != "function")
-            return T(W, se, B, ae, N(te));
+            return T(W, se, B, ae, H(te));
           var ge = te(G, ae, W, se, B + "." + ae, t);
           if (ge)
             return ge;
@@ -12639,14 +12639,14 @@ function Sl() {
     }
     function R(O) {
       function _(Z, ee, W, se, B) {
-        var G = Z[ee], J = H(G);
+        var G = Z[ee], J = N(G);
         if (J !== "object")
           return new f("Invalid " + se + " `" + B + "` of type `" + J + "` " + ("supplied to `" + W + "`, expected `object`."));
         var ae = e({}, Z[ee], O);
         for (var te in ae) {
           var ge = O[te];
           if (i(O, te) && typeof ge != "function")
-            return T(W, se, B, te, N(ge));
+            return T(W, se, B, te, H(ge));
           if (!ge)
             return new f(
               "Invalid " + se + " `" + B + "` key `" + te + "` supplied to `" + W + "`.\nBad object: " + JSON.stringify(Z[ee], null, "  ") + `
@@ -12696,14 +12696,14 @@ Valid keys: ` + JSON.stringify(Object.keys(O), null, "  ")
     function Y(O, _) {
       return O === "symbol" ? !0 : _ ? _["@@toStringTag"] === "Symbol" || typeof Symbol == "function" && _ instanceof Symbol : !1;
     }
-    function H(O) {
+    function N(O) {
       var _ = typeof O;
       return Array.isArray(O) ? "array" : O instanceof RegExp ? "object" : Y(_, O) ? "symbol" : _;
     }
-    function N(O) {
+    function H(O) {
       if (typeof O > "u" || O === null)
         return "" + O;
-      var _ = H(O);
+      var _ = N(O);
       if (_ === "object") {
         if (O instanceof Date)
           return "date";
@@ -12713,7 +12713,7 @@ Valid keys: ` + JSON.stringify(Object.keys(O), null, "  ")
       return _;
     }
     function U(O) {
-      var _ = N(O);
+      var _ = H(O);
       switch (_) {
         case "array":
         case "object":
@@ -12875,9 +12875,9 @@ function Lr(n) {
     var v, C, k = (function(S, P) {
       if (S == null) return {};
       var T = {};
-      for (var E in S) if ({}.hasOwnProperty.call(S, E)) {
-        if (P.includes(E)) continue;
-        T[E] = S[E];
+      for (var I in S) if ({}.hasOwnProperty.call(S, I)) {
+        if (P.includes(I)) continue;
+        T[I] = S[I];
       }
       return T;
     })(y, w);
@@ -12930,18 +12930,58 @@ const Rl = ({ widget: n }) => {
       data: [30, 40, 45, 50, 49]
     }
   ];
-  return /* @__PURE__ */ I.jsx("div", { className: "h-full w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm", children: /* @__PURE__ */ I.jsx(Lr, { options: t, series: i, type: e, height: "100%", width: "100%" }) });
+  return /* @__PURE__ */ E.jsx("div", { className: "h-full w-full p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm", children: /* @__PURE__ */ E.jsx(Lr, { options: t, series: i, type: e, height: "100%", width: "100%" }) });
 }, Ol = ({ widget: n }) => {
-  var i, a;
+  var i, a, s;
   const e = Array.isArray((i = n.data) == null ? void 0 : i.result) ? n.data.result : [], t = ((a = n.settings) == null ? void 0 : a.columns) || (e.length > 0 ? Object.keys(e[0]) : ["ID", "Name", "Status"]);
-  return /* @__PURE__ */ I.jsxs("div", { className: "h-full w-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm overflow-hidden flex flex-col", children: [
-    /* @__PURE__ */ I.jsx("div", { className: "text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3", children: n.title }),
-    /* @__PURE__ */ I.jsx("div", { className: "overflow-x-auto flex-1", children: /* @__PURE__ */ I.jsxs("table", { className: "min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-xs", children: [
-      /* @__PURE__ */ I.jsx("thead", { className: "bg-slate-50 dark:bg-slate-800/50", children: /* @__PURE__ */ I.jsx("tr", { children: t.map((s, r) => /* @__PURE__ */ I.jsx("th", { className: "px-3 py-2 text-left font-medium text-slate-500 uppercase tracking-wider", children: s }, r)) }) }),
-      /* @__PURE__ */ I.jsx("tbody", { className: "divide-y divide-slate-200 dark:divide-slate-800", children: e.length > 0 ? e.map((s, r) => /* @__PURE__ */ I.jsx("tr", { className: "hover:bg-slate-50 dark:hover:bg-slate-800/30", children: t.map((o, l) => /* @__PURE__ */ I.jsx("td", { className: "px-3 py-2 text-slate-700 dark:text-slate-300", children: typeof s[o] == "object" ? JSON.stringify(s[o]) : String(s[o] ?? "-") }, l)) }, r)) : /* @__PURE__ */ I.jsx("tr", { children: /* @__PURE__ */ I.jsx("td", { colSpan: t.length, className: "px-3 py-4 text-center text-slate-400", children: "No table data available" }) }) })
+  return /* @__PURE__ */ E.jsxs("div", { className: "h-full w-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm overflow-hidden flex flex-col", children: [
+    /* @__PURE__ */ E.jsxs("div", { className: "flex items-center justify-between text-sm font-semibold text-slate-800 dark:text-slate-200 mb-3", children: [
+      /* @__PURE__ */ E.jsx("span", { children: n.title }),
+      ((s = n.settings) == null ? void 0 : s.data_table) && /* @__PURE__ */ E.jsx("span", { className: "text-[10px] uppercase font-bold text-indigo-600 bg-indigo-50 dark:bg-indigo-950/50 px-2 py-0.5 rounded", children: "DataTable Driver" })
+    ] }),
+    /* @__PURE__ */ E.jsx("div", { className: "overflow-x-auto flex-1", children: /* @__PURE__ */ E.jsxs("table", { className: "min-w-full divide-y divide-slate-200 dark:divide-slate-800 text-xs", children: [
+      /* @__PURE__ */ E.jsx("thead", { className: "bg-slate-50 dark:bg-slate-800/50", children: /* @__PURE__ */ E.jsx("tr", { children: t.map((r, o) => /* @__PURE__ */ E.jsx("th", { className: "px-3 py-2 text-left font-medium text-slate-500 uppercase tracking-wider", children: r }, o)) }) }),
+      /* @__PURE__ */ E.jsx("tbody", { className: "divide-y divide-slate-200 dark:divide-slate-800", children: e.length > 0 ? e.map((r, o) => /* @__PURE__ */ E.jsx("tr", { className: "hover:bg-slate-50 dark:hover:bg-slate-800/30", children: t.map((l, h) => /* @__PURE__ */ E.jsx("td", { className: "px-3 py-2 text-slate-700 dark:text-slate-300", children: zl(r[l]) }, h)) }, o)) : /* @__PURE__ */ E.jsx("tr", { children: /* @__PURE__ */ E.jsx("td", { colSpan: t.length, className: "px-3 py-4 text-center text-slate-400", children: "No table data available" }) }) })
     ] }) })
   ] });
-}, Hl = ({
+};
+function zl(n) {
+  if (n == null) return /* @__PURE__ */ E.jsx("span", { className: "text-slate-400", children: "-" });
+  const e = String(n);
+  return ["active", "completed", "success", "healthy", "admin"].includes(e.toLowerCase()) ? /* @__PURE__ */ E.jsx("span", { className: "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300", children: e }) : ["inactive", "failed", "failing", "danger", "banned"].includes(e.toLowerCase()) ? /* @__PURE__ */ E.jsx("span", { className: "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300", children: e }) : ["pending", "warning", "editor"].includes(e.toLowerCase()) ? /* @__PURE__ */ E.jsx("span", { className: "inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300", children: e }) : typeof n == "object" ? JSON.stringify(n) : e;
+}
+const _l = ({ widget: n }) => {
+  var i, a;
+  const e = ((i = n.settings) == null ? void 0 : i.probes) || ["database", "cache"], t = ((a = n.data) == null ? void 0 : a.probes) || [
+    { name: "Database Connection", status: "healthy", latency_ms: 12 },
+    { name: "Redis Cache", status: "healthy", latency_ms: 4 }
+  ];
+  return /* @__PURE__ */ E.jsxs("div", { className: "flex flex-col justify-between h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-3", children: [
+    /* @__PURE__ */ E.jsxs("div", { className: "flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2", children: [
+      /* @__PURE__ */ E.jsx("span", { className: "text-sm font-semibold text-slate-800 dark:text-slate-200", children: n.title || "System Diagnostics" }),
+      /* @__PURE__ */ E.jsxs("span", { className: "inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300", children: [
+        /* @__PURE__ */ E.jsx("span", { className: "w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse" }),
+        "Live Probes"
+      ] })
+    ] }),
+    /* @__PURE__ */ E.jsx("div", { className: "space-y-2 flex-1 overflow-y-auto", children: t.map((s, r) => {
+      const o = s.status === "healthy";
+      return /* @__PURE__ */ E.jsxs("div", { className: "flex items-center justify-between p-2 rounded-md bg-slate-50 dark:bg-slate-800/50", children: [
+        /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-2", children: [
+          /* @__PURE__ */ E.jsx("span", { className: `w-2 h-2 rounded-full ${o ? "bg-emerald-500" : "bg-rose-500"}` }),
+          /* @__PURE__ */ E.jsx("span", { className: "text-xs font-medium text-slate-700 dark:text-slate-300", children: s.name || e[r] })
+        ] }),
+        /* @__PURE__ */ E.jsxs("div", { className: "flex items-center space-x-2 text-xs", children: [
+          s.latency_ms && /* @__PURE__ */ E.jsxs("span", { className: "text-slate-400", children: [
+            s.latency_ms,
+            "ms"
+          ] }),
+          /* @__PURE__ */ E.jsx("span", { className: `px-1.5 py-0.5 rounded font-semibold text-[10px] uppercase ${o ? "bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300" : "bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300"}`, children: s.status || "healthy" })
+        ] })
+      ] }, r);
+    }) })
+  ] });
+}, Fl = ({
   widgets: n,
   selectedWidgetId: e,
   onSelectWidget: t,
@@ -12969,28 +13009,30 @@ const Rl = ({ widget: n }) => {
     switch (l.type) {
       case "card":
       case "stats":
-        return /* @__PURE__ */ I.jsx(ao, { widget: l });
+        return /* @__PURE__ */ E.jsx(ao, { widget: l });
       case "line_chart":
       case "bar_chart":
       case "pie_chart":
       case "area_chart":
-        return /* @__PURE__ */ I.jsx(Rl, { widget: l });
+        return /* @__PURE__ */ E.jsx(Rl, { widget: l });
       case "table":
-        return /* @__PURE__ */ I.jsx(Ol, { widget: l });
+        return /* @__PURE__ */ E.jsx(Ol, { widget: l });
+      case "status_probe":
+        return /* @__PURE__ */ E.jsx(_l, { widget: l });
       case "markdown":
-        return /* @__PURE__ */ I.jsxs("div", { className: "h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm", children: [
-          /* @__PURE__ */ I.jsx("h4", { className: "font-bold mb-2 text-sm text-slate-800 dark:text-slate-200", children: l.title }),
-          /* @__PURE__ */ I.jsx("div", { className: "text-xs text-slate-600 dark:text-slate-400", children: ((h = l.settings) == null ? void 0 : h.content) || "Markdown Content Placeholder" })
+        return /* @__PURE__ */ E.jsxs("div", { className: "h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm", children: [
+          /* @__PURE__ */ E.jsx("h4", { className: "font-bold mb-2 text-sm text-slate-800 dark:text-slate-200", children: l.title }),
+          /* @__PURE__ */ E.jsx("div", { className: "text-xs text-slate-600 dark:text-slate-400", children: ((h = l.settings) == null ? void 0 : h.content) || "Markdown Content Placeholder" })
         ] });
       case "iframe":
-        return /* @__PURE__ */ I.jsxs("div", { className: "h-full w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm overflow-hidden flex flex-col", children: [
-          /* @__PURE__ */ I.jsx("div", { className: "p-2 bg-slate-50 dark:bg-slate-800 text-xs font-semibold text-slate-600", children: l.title }),
-          /* @__PURE__ */ I.jsx("iframe", { src: ((c = l.settings) == null ? void 0 : c.url) || "https://example.com", className: "w-full flex-1 border-none", title: l.title })
+        return /* @__PURE__ */ E.jsxs("div", { className: "h-full w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm overflow-hidden flex flex-col", children: [
+          /* @__PURE__ */ E.jsx("div", { className: "p-2 bg-slate-50 dark:bg-slate-800 text-xs font-semibold text-slate-600", children: l.title }),
+          /* @__PURE__ */ E.jsx("iframe", { src: ((c = l.settings) == null ? void 0 : c.url) || "https://example.com", className: "w-full flex-1 border-none", title: l.title })
         ] });
       default:
-        return /* @__PURE__ */ I.jsxs("div", { className: "h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm flex flex-col items-center justify-center text-xs text-slate-400", children: [
-          /* @__PURE__ */ I.jsx("span", { children: l.title }),
-          /* @__PURE__ */ I.jsxs("span", { className: "text-[10px] text-indigo-500", children: [
+        return /* @__PURE__ */ E.jsxs("div", { className: "h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm flex flex-col items-center justify-center text-xs text-slate-400", children: [
+          /* @__PURE__ */ E.jsx("span", { children: l.title }),
+          /* @__PURE__ */ E.jsxs("span", { className: "text-[10px] text-indigo-500", children: [
             "[",
             l.type,
             "]"
@@ -12998,31 +13040,31 @@ const Rl = ({ widget: n }) => {
         ] });
     }
   };
-  return /* @__PURE__ */ I.jsx("div", { id: "dashboard-canvas-grid", className: "flex-1 p-6 bg-slate-100 dark:bg-slate-950 min-h-[calc(100vh-3.5rem)] overflow-y-auto", children: n.length === 0 ? /* @__PURE__ */ I.jsxs("div", { className: "h-64 border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-xl flex flex-col items-center justify-center text-slate-400 text-xs", children: [
-    /* @__PURE__ */ I.jsx("p", { className: "font-medium", children: "Canvas is empty" }),
-    /* @__PURE__ */ I.jsx("p", { className: "mt-1", children: "Add widgets from the left palette to build your dashboard layout" })
-  ] }) : /* @__PURE__ */ I.jsx("div", { className: "grid grid-cols-12 gap-4", children: n.map((l, h) => {
+  return /* @__PURE__ */ E.jsx("div", { id: "dashboard-canvas-grid", className: "flex-1 p-6 bg-slate-100 dark:bg-slate-950 min-h-[calc(100vh-3.5rem)] overflow-y-auto", children: n.length === 0 ? /* @__PURE__ */ E.jsxs("div", { className: "h-64 border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-xl flex flex-col items-center justify-center text-slate-400 text-xs", children: [
+    /* @__PURE__ */ E.jsx("p", { className: "font-medium", children: "Canvas is empty" }),
+    /* @__PURE__ */ E.jsx("p", { className: "mt-1", children: "Add widgets from the left palette to build your dashboard layout" })
+  ] }) : /* @__PURE__ */ E.jsx("div", { className: "grid grid-cols-12 gap-4", children: n.map((l, h) => {
     const c = e === l.id || e === void 0 && h === 0, d = Math.min(Math.max(l.w, 1), 12);
-    return /* @__PURE__ */ I.jsxs(
+    return /* @__PURE__ */ E.jsxs(
       "div",
       {
         onClick: () => t(l),
         style: { gridColumn: `span ${d} / span ${d}` },
         className: `relative group cursor-pointer transition-all duration-150 ${i && c ? "ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-950 rounded-lg" : ""}`,
         children: [
-          i && c && /* @__PURE__ */ I.jsxs("div", { className: "absolute -top-3 right-2 z-20 flex items-center space-x-1 bg-indigo-600 text-white p-1 rounded-md shadow-md text-[10px]", children: [
-            /* @__PURE__ */ I.jsx("button", { onClick: (u) => r(l, -1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Left", children: /* @__PURE__ */ I.jsx(on, { className: "w-3 h-3" }) }),
-            /* @__PURE__ */ I.jsx("button", { onClick: (u) => r(l, 1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Right", children: /* @__PURE__ */ I.jsx(hn, { className: "w-3 h-3" }) }),
-            /* @__PURE__ */ I.jsx("button", { onClick: (u) => r(l, 0, -1, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Up", children: /* @__PURE__ */ I.jsx(dn, { className: "w-3 h-3" }) }),
-            /* @__PURE__ */ I.jsx("button", { onClick: (u) => r(l, 0, 1, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Down", children: /* @__PURE__ */ I.jsx(rn, { className: "w-3 h-3" }) }),
-            /* @__PURE__ */ I.jsx("span", { className: "w-px h-3 bg-indigo-400 my-auto" }),
-            /* @__PURE__ */ I.jsxs("button", { onClick: (u) => s(l, 1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded flex items-center", title: "Increase Width", children: [
-              /* @__PURE__ */ I.jsx("span", { children: "W" }),
-              /* @__PURE__ */ I.jsx(Nn, { className: "w-2.5 h-2.5 ml-0.5" })
+          i && c && /* @__PURE__ */ E.jsxs("div", { className: "absolute -top-3 right-2 z-20 flex items-center space-x-1 bg-indigo-600 text-white p-1 rounded-md shadow-md text-[10px]", children: [
+            /* @__PURE__ */ E.jsx("button", { onClick: (u) => r(l, -1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Left", children: /* @__PURE__ */ E.jsx(on, { className: "w-3 h-3" }) }),
+            /* @__PURE__ */ E.jsx("button", { onClick: (u) => r(l, 1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Right", children: /* @__PURE__ */ E.jsx(hn, { className: "w-3 h-3" }) }),
+            /* @__PURE__ */ E.jsx("button", { onClick: (u) => r(l, 0, -1, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Up", children: /* @__PURE__ */ E.jsx(dn, { className: "w-3 h-3" }) }),
+            /* @__PURE__ */ E.jsx("button", { onClick: (u) => r(l, 0, 1, u), className: "hover:bg-indigo-700 p-0.5 rounded", title: "Move Down", children: /* @__PURE__ */ E.jsx(rn, { className: "w-3 h-3" }) }),
+            /* @__PURE__ */ E.jsx("span", { className: "w-px h-3 bg-indigo-400 my-auto" }),
+            /* @__PURE__ */ E.jsxs("button", { onClick: (u) => s(l, 1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded flex items-center", title: "Increase Width", children: [
+              /* @__PURE__ */ E.jsx("span", { children: "W" }),
+              /* @__PURE__ */ E.jsx(Hn, { className: "w-2.5 h-2.5 ml-0.5" })
             ] }),
-            /* @__PURE__ */ I.jsxs("button", { onClick: (u) => s(l, -1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded flex items-center", title: "Decrease Width", children: [
-              /* @__PURE__ */ I.jsx("span", { children: "W" }),
-              /* @__PURE__ */ I.jsx(_n, { className: "w-2.5 h-2.5 ml-0.5" })
+            /* @__PURE__ */ E.jsxs("button", { onClick: (u) => s(l, -1, 0, u), className: "hover:bg-indigo-700 p-0.5 rounded flex items-center", title: "Decrease Width", children: [
+              /* @__PURE__ */ E.jsx("span", { children: "W" }),
+              /* @__PURE__ */ E.jsx(_n, { className: "w-2.5 h-2.5 ml-0.5" })
             ] })
           ] }),
           o(l)
@@ -13031,14 +13073,14 @@ const Rl = ({ widget: n }) => {
       l.id || h
     );
   }) }) });
-}, Nl = "1.0.0";
+}, Dl = "1.0.0";
 export {
   Rl as ApexChartRenderer,
-  Hl as CanvasGrid,
-  Yl as LeftSidebar,
-  Xl as RightSidebar,
+  Fl as CanvasGrid,
+  Nl as LeftSidebar,
+  Hl as RightSidebar,
   ao as StatCardRenderer,
   Ol as TableRenderer,
-  _l as TopToolbar,
-  Nl as version
+  Xl as TopToolbar,
+  Dl as version
 };

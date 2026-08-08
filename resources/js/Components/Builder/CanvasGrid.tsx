@@ -3,6 +3,7 @@ import { DashboardWidget } from '../../Types';
 import { StatCardRenderer } from '../Widgets/StatCardRenderer';
 import { ApexChartRenderer } from '../Widgets/ApexChartRenderer';
 import { TableRenderer } from '../Widgets/TableRenderer';
+import { StatusProbeWidgetRenderer } from '../Widgets/StatusProbeWidgetRenderer';
 import { ArrowLeft, ArrowRight, ArrowUp, ArrowDown, Plus, Minus } from 'lucide-react';
 
 interface CanvasGridProps {
@@ -60,6 +61,8 @@ export const CanvasGrid: React.FC<CanvasGridProps> = ({
         return <ApexChartRenderer widget={widget} />;
       case 'table':
         return <TableRenderer widget={widget} />;
+      case 'status_probe':
+        return <StatusProbeWidgetRenderer widget={widget} />;
       case 'markdown':
         return (
           <div className="h-full p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm">

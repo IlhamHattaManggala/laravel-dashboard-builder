@@ -5,6 +5,13 @@ All notable changes to `manggala/laravel-dashboard-builder` will be documented i
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v1.1.0] - 2026-08-08
+
+### Added
+* 🟢 **System Health Probe Widget (`StatusProbeWidget`)**: Added PHP `StatusProbeWidget` class and frontend `StatusProbeWidgetRenderer.tsx` component to display live database, cache, and HTTP probe diagnostic statuses from `manggala/laravel-status-page`.
+* 📊 **`manggala/laravel-datatable` Driver Integration**: Enhanced `TableWidget` PHP class and `TableRenderer.tsx` React component with native `dataTable()` driver support, colorful status badges, Carbon date formatting, and profile thumbnail avatars.
+* ⚡ **`manggala/laravel-spotlight` Navigation Bridge**: Integrated command palette auto-discovery bridge for instant dashboard navigation via `Cmd+K`.
+
 ---
 
 ## [v1.0.6] - 2026-08-03
