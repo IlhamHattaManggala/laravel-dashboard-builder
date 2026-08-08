@@ -10,6 +10,8 @@ class TableWidget extends Widget
 
     protected string $category = 'content';
 
+    protected ?string $dataTableClass = null;
+
     protected array $columns = [];
 
     protected int $perPage = 10;
@@ -17,6 +19,13 @@ class TableWidget extends Widget
     public function columns(array $columns): static
     {
         $this->columns = $columns;
+
+        return $this;
+    }
+
+    public function dataTable(string $dataTableClass): static
+    {
+        $this->dataTableClass = $dataTableClass;
 
         return $this;
     }
@@ -32,6 +41,7 @@ class TableWidget extends Widget
     {
         return array_merge(parent::toArray(), [
             'columns' => $this->columns,
+            'data_table' => $this->dataTableClass,
             'per_page' => $this->perPage,
         ]);
     }

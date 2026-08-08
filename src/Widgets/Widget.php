@@ -51,6 +51,7 @@ abstract class Widget implements WidgetContract
      */
     public static function make(?string $title = null): static
     {
+        /** @phpstan-ignore new.static */
         return new static($title);
     }
 
